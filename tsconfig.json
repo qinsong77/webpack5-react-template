@@ -1,0 +1,34 @@
+{
+  /* Visit https://aka.ms/tsconfig to read more about this file */
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "target": "es6" /* 指定 ECMAScript 目标版本：'ES3'、'ES5'（默认）、'ES2015'、'ES2016'、'ES2017'、'ES2018'、'ES2019'、'ES2020' 或 'ESNEXT'。 */,
+    "module": "esnext" /*TS需要引用的库，即声明文件，es5 默认引用dom、es5、scripthost,如需要使用es的高级版本特性，通常都需要配置，如es8的数组新特性需要引入"ES2019.Array" */,
+    "lib": ["dom", "dom.iterable", "esnext"] /* 指定要包含在编译中的库文件。 */,
+    "allowJs": false /* 不允许编译器编译JS，JSX文件 */,
+    "noEmit": true /* 不输出文件,即编译后不会生成任何js文件 */,
+
+    "strict": true /* 启用所有严格的类型检查选项。 */,
+
+    "moduleResolution": "node" /** 模块解析策略，ts默认用node的解析策略，即相对的方式导入 */,
+    "allowSyntheticDefaultImports": true /* 允许从没有默认导出的模块中默认导入。 这不会影响代码发出，只是类型检查。 */,
+    "esModuleInterop": true /* 允许export=导出，由import from 导入 */,
+
+    "noFallthroughCasesInSwitch": true /* 在 switch 语句中报告失败情况的错误。 */,
+
+    "resolveJsonModule": true /* 可以导入json文件 */,
+    "isolatedModules": true /* 将每个文件转换为一个单独的模块（类似于 'ts.transpileModule'）。 */,
+    "jsx": "react-jsx" /* 指定 JSX 格式：'preserve'、'react-native' 或 'react'。 */,
+
+    "skipLibCheck": true /* 跳过声明文件的类型检查。 */,
+    "forceConsistentCasingInFileNames": true /* 禁止对同一文件的大小写不一致地引用。 */,
+    "paths": {
+      //别名
+      "@/*": ["src/*"],
+      "@images/*": ["src/assets/images/*"],
+    },
+  },
+  "include": ["src"],
+  /* 不进行类型检查的文件 */
+  "exclude": ["node_modules"]
+}
