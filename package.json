@@ -5,6 +5,7 @@
   "description": "webpack5 react bse template",
   "main": "index.js",
   "scripts": {
+    "commit": "git-cz",
     "prepare": "husky install & npx only-allow pnpm",
     "dev": "cross-env NODE_ENV=development TS_NODE_PROJECT=\\\"tsconfig-for-webpack-config.json\\\" webpack serve --config webpack/webpack.development.ts",
     "build": "cross-env NODE_ENV=production TS_NODE_PROJECT=\\\"tsconfig-for-webpack-config.json\\\" webpack --config webpack/webpack.production.ts",
@@ -18,6 +19,11 @@
       "prettier --write",
       "eslint  --fix"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "keywords": [],
   "author": "",
@@ -44,10 +50,12 @@
     "@typescript-eslint/parser": "^5.31.0",
     "babel-loader": "^8.2.5",
     "browserslist": "^4.21.1",
+    "commitizen": "^4.2.5",
     "core-js": "^3.24.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.0.0",
+    "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^16.0.1",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
