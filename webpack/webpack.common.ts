@@ -4,12 +4,10 @@ import * as webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import friendlyErrorsWebpackPlugin from '@soda/friendly-errors-webpack-plugin';
 import * as path from 'path';
 import { IS_DEV } from './config';
 import { handler } from './utils';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const friendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const config: Configuration = {
   mode: 'production',

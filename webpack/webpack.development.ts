@@ -20,7 +20,7 @@ const config: Configuration = {
     static: {
       // directory: path.join(__dirname, './dist'),
     },
-    port: 9000,
+    port: 3010,
     // 当使用 [HTML5 History API] 时，任意的 `404` 响应被替代为 `index.html`
     historyApiFallback: true,
     // 是否启用gzip压缩

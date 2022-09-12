@@ -25,10 +25,18 @@
     "paths": {
       //别名
       "@/*": ["src/*"],
-      "@images/*": ["src/assets/images/*"],
-    },
+      "@images/*": ["src/assets/images/*"]
+    }
   },
   "include": ["src"],
   /* 不进行类型检查的文件 */
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "references": [
+    {
+      "path": "./tsconfig.webpack.json"
+    }
+    //    {
+    //      "path": "./tsconfig.spec.json"
+    //    }
+  ]
 }

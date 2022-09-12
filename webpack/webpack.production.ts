@@ -2,6 +2,8 @@ import type { Configuration } from 'webpack';
 import merge from 'webpack-merge';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import TerserPlugin from 'terser-webpack-plugin';
 
 import InlineRuntimeChunkPlugin from './plugins/inline-runtime-chunk-html';
 
@@ -13,7 +15,7 @@ const config: Configuration = {
   optimization: {
     minimize: true, //开启压缩
     moduleIds: 'deterministic', //单独模块id，模块内容变化再更新
-    minimizer: [new CssMinimizerPlugin()],
+    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
     runtimeChunk: true,
     splitChunks: {
       chunks: 'all', // 匹配的块的类型：initial（初始块），async（按需加载的异步块），all（所有块）
@@ -46,6 +48,10 @@ const config: Configuration = {
       ignoreOrder: false, // Enable to remove warnings about conflicting order
     }),
     new InlineRuntimeChunkPlugin(),
+    process.env.analyzer &&
+      (new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+      }) as any),
   ],
 };
 
