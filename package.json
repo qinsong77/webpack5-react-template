@@ -12,13 +12,15 @@
     "build:analyzer": "cross-env NODE_ENV=production analyzer=true TS_NODE_PROJECT=\\\"tsconfig-for-webpack-config.json\\\" webpack --config webpack/webpack.production.ts",
     "serve": "serve dist -p 3001",
     "clean": "rm -rf dist",
-    "lint": "eslint \"src/**/*.{ts,tsx}\"",
-    "lint:fix": "eslint \"src/**/*.{ts,tsx}\"  --fix"
+    "lint": "eslint \"src/**/*.{js,ts,tsx}\"",
+    "lint:fix": "eslint \"src/**/*.{js,ts,tsx}\"  --fix",
+    "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|ts|tsx)\"",
+    "format": "pnpm run prettier -- --write"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "eslint  --fix"
+      "eslint"
     ]
   },
   "config": {
@@ -46,18 +48,18 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@types/webpack": "^5.28.0",
-    "@types/webpack-bundle-analyzer": "^4.4.2",
-    "@typescript-eslint/eslint-plugin": "^5.31.0",
-    "@typescript-eslint/parser": "^5.31.0",
+    "@types/webpack-bundle-analyzer": "^4.6.0",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
     "babel-loader": "^8.2.5",
     "commitizen": "^4.2.5",
-    "core-js": "^3.24.0",
+    "core-js": "^3.25.5",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
-    "css-minimizer-webpack-plugin": "^4.0.0",
+    "css-minimizer-webpack-plugin": "^4.2.1",
     "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^16.0.1",
-    "eslint": "^8.20.0",
+    "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
