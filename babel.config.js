@@ -1,8 +1,17 @@
-const IS_DEV = process.env.NODE_ENV === 'development';
+const IS_DEV = process.env.NODE_ENV === 'development'
 
 module.exports = {
   presets: [
-    '@babel/preset-env',
+    [
+      '@babel/preset-env',
+      {
+        useBuiltIns: 'usage',
+        corejs: {
+          version: 3,
+          proposals: true, // 使用尚在提议阶段特性的 polyfill
+        },
+      },
+    ],
     [
       '@babel/preset-react',
       {
@@ -13,4 +22,4 @@ module.exports = {
     '@babel/preset-typescript',
   ],
   plugins: [].concat(IS_DEV ? ['react-refresh/babel'] : []),
-};
+}
