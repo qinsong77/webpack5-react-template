@@ -1,13 +1,13 @@
 // .ts 配置 https://webpack.js.org/configuration/configuration-languages
-import type { Configuration } from 'webpack';
-import * as webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-import friendlyErrorsWebpackPlugin from '@soda/friendly-errors-webpack-plugin';
-import * as path from 'path';
-import { IS_DEV } from './config';
-import { handler } from './utils';
+import type { Configuration } from 'webpack'
+import * as webpack from 'webpack'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
+import FriendlyErrorsWebpackPlugin from '@soda/friendly-errors-webpack-plugin'
+import * as path from 'path'
+import { IS_DEV } from './config'
+import { handler } from './utils'
 
 const config: Configuration = {
   mode: 'production',
@@ -91,9 +91,9 @@ const config: Configuration = {
       },
     }),
     new ForkTsCheckerWebpackPlugin(),
-    new friendlyErrorsWebpackPlugin(),
+    new FriendlyErrorsWebpackPlugin(),
     new webpack.ProgressPlugin(handler),
   ],
-};
+}
 
-export default config;
+export default config

@@ -1,7 +1,7 @@
-import logo from './assets/logo.svg';
-import './App.css';
+import logo from './assets/logo.svg'
+import './App.css'
 
-import Button from '@/components/Button';
+import Button from '@/components/Button'
 
 const App = () => {
   return (
@@ -19,13 +19,14 @@ const App = () => {
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
-          rel="noopener noreferrer">
+          rel="noopener noreferrer"
+        >
           Learn React
         </a>
       </header>
       <Button />
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

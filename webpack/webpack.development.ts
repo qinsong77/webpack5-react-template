@@ -1,8 +1,8 @@
-import type { Configuration } from 'webpack';
-import 'webpack-dev-server';
-import merge from 'webpack-merge';
-import commonConfig from './webpack.common';
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import type { Configuration } from 'webpack'
+import 'webpack-dev-server'
+import merge from 'webpack-merge'
+import commonConfig from './webpack.common'
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
 const config: Configuration = {
   mode: 'development',
@@ -47,6 +47,6 @@ const config: Configuration = {
     // }),
     new ReactRefreshWebpackPlugin(),
   ],
-};
+}
 
-export default merge(commonConfig, config);
+export default merge(commonConfig, config)

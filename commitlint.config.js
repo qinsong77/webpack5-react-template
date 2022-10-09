@@ -1,6 +1,6 @@
 module.exports = {
   extends: ['@commitlint/config-conventional'],
-};
+}
 // git commit 规范
 // <类型>[可选的作用域]: <描述>
 // git commit -m 'feat: 增加 xxx 功能'

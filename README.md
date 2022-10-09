@@ -383,9 +383,14 @@ webpack 5 之前，通常使用
 这里选择第三种，安装依赖：
 ```shell
 pnpm i babel-loader @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript core-js -D
-pnpm i @babel/plugin-transform-runtime -D
-pnpm add @babel/runtime
+# 作为project不需要，library使用runtime
+# pnpm i @babel/plugin-transform-runtime -D
+# pnpm add @babel/runtime
 ```
+> 类库项目的构建如果需要注入 `polyfill` 的话，最好使用 `@babel/transform-runtime`，因为它提供了一种不污染全局作用域的方式。
+而业务项目中最好使用 `preset-env` 的 `useBuintIns` 配置来注入 polyfill，这种方式会污染全局作用域。
+
+- [前端基建」探索不同项目场景下Babel最佳实践方案](https://juejin.cn/post/7051355444341637128)
 
 - [@babel/preset-env 与@babel/plugin-transform-runtime 使用及场景区别](https://segmentfault.com/a/1190000021188054)
 - [babel-loader](https://webpack.docschina.org/loaders/babel-loader): 使用 Babel 和 webpack 转译 JavaScript 等文件，内部核心转译功能需要@babel/core这个核心库。

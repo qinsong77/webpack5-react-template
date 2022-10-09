@@ -1,7 +1,7 @@
-import { add } from './utils';
+import { add } from './utils'
 
 const Header = () => {
-  return <button>Header{add(2, 3)}</button>;
-};
+  return <button>Header{add(2, 3)}</button>
+}
 
-export default Header;
+export default Header

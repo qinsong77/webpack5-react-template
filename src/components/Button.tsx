@@ -1,7 +1,7 @@
-import { add } from './utils';
+import { add } from '@/components/utils'
 
 const Button = () => {
-  return <button>button : {add(1, 2)}</button>;
-};
+  return <button>button : {add(1, 2)}</button>
+}
 
-export default Button;
+export default Button

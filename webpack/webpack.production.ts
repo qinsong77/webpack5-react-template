@@ -1,13 +1,13 @@
-import type { Configuration } from 'webpack';
-import merge from 'webpack-merge';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import TerserPlugin from 'terser-webpack-plugin';
+import type { Configuration } from 'webpack'
+import merge from 'webpack-merge'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+import TerserPlugin from 'terser-webpack-plugin'
 
-import InlineRuntimeChunkPlugin from './plugins/inline-runtime-chunk-html';
+import InlineRuntimeChunkPlugin from './plugins/inline-runtime-chunk-html'
 
-import commonConfig from './webpack.common';
+import commonConfig from './webpack.common'
 
 const config: Configuration = {
   mode: 'production',
@@ -49,10 +49,10 @@ const config: Configuration = {
     }),
     new InlineRuntimeChunkPlugin(),
     process.env.analyzer &&
-      (new BundleAnalyzerPlugin({
+      new BundleAnalyzerPlugin({
         analyzerMode: 'static',
-      }) as any),
-  ],
-};
+      }),
+  ].filter(Boolean),
+}
 
-export default merge(commonConfig, config);
+export default merge(commonConfig, config)
