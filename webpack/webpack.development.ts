@@ -1,8 +1,9 @@
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import type { Configuration } from 'webpack'
 import 'webpack-dev-server'
 import merge from 'webpack-merge'
+
 import commonConfig from './webpack.common'
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
 const config: Configuration = {
   mode: 'development',

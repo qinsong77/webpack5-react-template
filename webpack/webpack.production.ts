@@ -1,12 +1,11 @@
-import type { Configuration } from 'webpack'
-import merge from 'webpack-merge'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
+import type { Configuration } from 'webpack'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+import merge from 'webpack-merge'
 
 import InlineRuntimeChunkPlugin from './plugins/inline-runtime-chunk-html'
-
 import commonConfig from './webpack.common'
 
 const config: Configuration = {
@@ -20,6 +19,7 @@ const config: Configuration = {
     splitChunks: {
       chunks: 'all', // 匹配的块的类型：initial（初始块），async（按需加载的异步块），all（所有块）
       automaticNameDelimiter: '-',
+      // todo enhancement
       cacheGroups: {
         // 项目第三方组件
         vendor: {

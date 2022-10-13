@@ -1,5 +1,5 @@
-import type { Compilation, Compiler, sources } from 'webpack'
 import HtmlWebpackPlugin, { HtmlTagObject } from 'html-webpack-plugin'
+import type { Compilation, Compiler, sources } from 'webpack'
 
 export interface Options {
   removeSourceMap?: boolean

@@ -1,13 +1,20 @@
 // .ts 配置 https://webpack.js.org/configuration/configuration-languages
-import type { Configuration } from 'webpack'
-import * as webpack from 'webpack'
+import * as path from 'path'
+
+import FriendlyErrorsWebpackPlugin from '@soda/friendly-errors-webpack-plugin'
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
-import FriendlyErrorsWebpackPlugin from '@soda/friendly-errors-webpack-plugin'
-import * as path from 'path'
+import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin'
+import type { Configuration } from 'webpack'
+import * as webpack from 'webpack'
+
 import { IS_DEV } from './config'
 import { handler } from './utils'
+
+// fix error: tsconfig-paths-webpack-plugin: Found no baseUrl in tsconfig.json, not applying tsconfig-paths-webpack-plugin
+// https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/32#issuecomment-491824372
+delete process.env.TS_NODE_PROJECT
 
 const config: Configuration = {
   mode: 'production',
@@ -30,9 +37,16 @@ const config: Configuration = {
     // 尝试按顺序解析这些后缀名。如果有多个文件有相同的名字，但后缀名不同，webpack 会解析列在数组首位的后缀的文件 并跳过其余的后缀。
     extensions: ['.tsx', '.ts', '.js', '.json'],
     // 创建 import 或 require 的别名，来确保模块引入变得更简单。例如，一些位于 src/ 文件夹下的常用模块：
-    alias: {
-      '@': path.resolve(__dirname, '../src'),
-    },
+    // alias: {
+    //   '@': path.resolve(__dirname, '../src'),
+    // },
+    plugins: [
+      //https://www.npmjs.com/package/tsconfig-paths-webpack-plugin
+      new TsconfigPathsPlugin({
+        // https://snyk.io/advisor/npm-package/tsconfig-paths-webpack-plugin/example
+        configFile: path.resolve(__dirname, '../tsconfig.json'),
+      }),
+    ],
   },
   // loader的执行顺序默认从右到左，多个loader用[],字符串只用一个loader，也可以是对象的格式
   module: {
@@ -92,6 +106,7 @@ const config: Configuration = {
     }),
     new ForkTsCheckerWebpackPlugin(),
     new FriendlyErrorsWebpackPlugin(),
+    // eslint-disable-next-line import/namespace
     new webpack.ProgressPlugin(handler),
   ],
 }

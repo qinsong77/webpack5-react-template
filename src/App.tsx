@@ -1,7 +1,7 @@
+import Button from '@/components/Button'
+
 import logo from './assets/logo.svg'
 import './App.css'
-
-import Button from '@/components/Button'
 
 const App = () => {
   return (
