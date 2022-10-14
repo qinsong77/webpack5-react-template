@@ -25,8 +25,12 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
+    // Static AST checker for accessibility rules on JSX elements.
+    'plugin:jsx-a11y/recommended',
     // Prettier
     'plugin:prettier/recommended',
+    'plugin:testing-library/react',
+    'plugin:jest-dom/recommended',
   ],
   settings: {
     'import/parsers': {

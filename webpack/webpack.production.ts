@@ -5,7 +5,7 @@ import type { Configuration } from 'webpack'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import merge from 'webpack-merge'
 
-import InlineRuntimeChunkPlugin from './plugins/inline-runtime-chunk-html'
+// import InlineRuntimeChunkPlugin from './plugins/inline-runtime-chunk-html'
 import commonConfig from './webpack.common'
 
 const config: Configuration = {
@@ -47,7 +47,7 @@ const config: Configuration = {
       chunkFilename: 'css/[name].[contenthash:8].chunk.css',
       ignoreOrder: false, // Enable to remove warnings about conflicting order
     }),
-    new InlineRuntimeChunkPlugin(),
+    // new InlineRuntimeChunkPlugin(),
     process.env.analyzer &&
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
