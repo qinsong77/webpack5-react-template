@@ -1,8 +1,13 @@
 # 从零搭建 webpack5 + React + Typescript + Jest 基础模版
+
 > not done
+
+- [React 开发思想纲领](https://juejin.cn/post/7076244324614144014#heading-9)
+- [react 项目架构指南：Bulletproof React](https://github.com/alan2207/bulletproof-react)
+
 ## 初始化 package.json
 
-这里使用`pnpm`管理`package`，`pnpm`相比npm，yarn最大的优点就是节约磁盘空间并提升安装速度，在我用`pnpm-workspace+turborepo`搭建monorepo的项目中，感触颇深，得益于pnpm，在monorepo下即使有几十个app+package，安装速度也在接受范围内。
+这里使用`pnpm`管理`package`，`pnpm`相比npm，yarn最大的优点就是节约磁盘空间并提升安装速度，在我用`pnpm-workspace+turborepo`搭建monorepo的项目中，感触颇深，得益于`pnpm`，在`monorepo`下即使有几十个app+package，安装速度也在接受范围内。
 所以后续的所有命令都使用`pnpm`完成。
 初始化：
 
@@ -394,7 +399,7 @@ pnpm i babel-loader @babel/core @babel/preset-env @babel/preset-react @babel/pre
 
 - [@babel/preset-env 与@babel/plugin-transform-runtime 使用及场景区别](https://segmentfault.com/a/1190000021188054)
 - [babel-loader](https://webpack.docschina.org/loaders/babel-loader): 使用 Babel 和 webpack 转译 JavaScript 等文件，内部核心转译功能需要@babel/core这个核心库。
-- @babel/core: @babel/core是babel的核心库，所有的核心api都在这个库里，这些api可供babel-loader调用
+- `@babel/core`: `@babel/core`是babel的核心库，所有的核心api都在这个库里，这些api可供`babel-loader`调用
 - [@babel/preset-env](https://babel.docschina.org/docs/en/babel-preset-env/): 这是一个预设的插件集合，包含了一组相关的插件，Babel中是通过各种插件来指导如何进行代码转换。该插件包含所有es6转化为es5的翻译规则。可以做到按需加载我们需要的 polyfill
 
 > @babel/prest-env是babel转译过程中的一些预设，它负责将一些基础的es 6+语法，比如const/let...转译成为浏览器可以识别的低级别兼容性语法。这里需要注意的是@babel/prest-env并不会对于一些es6+高版本语法的实现，比如Promise等polyfill，你可以将它理解为语法层面的转化不包含高级别模块(polyfill)的实现。
@@ -919,7 +924,7 @@ module.exports = {
 
 每个打包以后的 bundle 文件里面，真正包含哪些内容，项目里的 module、js、component、html、css、img 最后都被放到哪个对应的 bunlde 文件里了。
 
-每个 bundle 文件里，列出了每一个的 module、componet、js 具体 size，同时会列出 start size、parsed size、gzip size 这三种不同的形式下到底多大，方便优化。
+每个 bundle 文件里，列出了每一个的 module、component、js 具体 size，同时会列出 start size、parsed size、gzip size 这三种不同的形式下到底多大，方便优化。
 
 - start size：原始没有经过 minify 处理的文件大小
 
