@@ -135,6 +135,7 @@ export default App;
 ```
 
 ### `import React from ‘react’` 和 `import * as React from 'react'`区别
+
 示例代码
 ```js
 // constant.js
@@ -147,7 +148,7 @@ import constant from './constant'
 console.log(constant)
 ```
 
-不管是 ts 还是 babel，在将 esm 编译为 cjs 的时候，对于 `export default` 的处理，都会放在一个 `default `的属性上，即 `module.exports.default = xxx`，上面编译的结果大致为：
+不管是 `ts` 还是 `babel`，在将 `esm `编译为 cjs 的时候，对于 `export default` 的处理，都会放在一个 `default `的属性上，即 `module.exports.default = xxx`，上面编译的结果大致为：
 
 ```js
 "use strict";
@@ -170,7 +171,7 @@ console.log(constant_1.default);
 - 对于 `export` 的变量，ts会将其放在 `module.exports` 对应变量名的属性上
 - 额外给 `module.exports` 增加一个 `__esModule: true `的属性，用来告诉编译器，这本来是一个 esm 模块
 
-看一下npm包中react的导出
+看一下`npm`包中`react`的导出
 
 ![](./image/shoot2.png)
 

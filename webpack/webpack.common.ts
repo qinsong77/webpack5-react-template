@@ -7,10 +7,11 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin'
 import type { Configuration } from 'webpack'
-import * as webpack from 'webpack'
+import WebpackBar from 'webpackbar'
+// import * as webpack from 'webpack'
 
 import { IS_DEV } from './config'
-import { handler } from './utils'
+// import { handleProgress } from './utils/handleProgress'
 
 // fix error: tsconfig-paths-webpack-plugin: Found no baseUrl in tsconfig.json, not applying tsconfig-paths-webpack-plugin
 // https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/32#issuecomment-491824372
@@ -18,6 +19,9 @@ delete process.env.TS_NODE_PROJECT
 
 const config: Configuration = {
   mode: 'production',
+  cache: {
+    type: 'filesystem', // 使用文件缓存
+  },
   entry: path.resolve(__dirname, '../src/index'),
   output: {
     // 相当于 clean-webpack-plugin
@@ -107,7 +111,12 @@ const config: Configuration = {
     new ForkTsCheckerWebpackPlugin(),
     new FriendlyErrorsWebpackPlugin(),
     // eslint-disable-next-line import/namespace
-    new webpack.ProgressPlugin(handler),
+    // new webpack.ProgressPlugin(handleProgress),
+    new WebpackBar({
+      // color: '#85d', // 默认green，进度条颜色支持HEX
+      // basic: false, // 默认true，启用一个简单的日志报告器
+      // profile: false, // 默认false，启用探查器。
+    }),
   ],
 }
 

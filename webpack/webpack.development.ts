@@ -5,7 +5,10 @@ import merge from 'webpack-merge'
 
 import commonConfig from './webpack.common'
 
-const config: Configuration = {
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+// const openBrowser = require('./utils/openBrowser.js')
+
+const config: Configuration = merge(commonConfig, {
   mode: 'development',
   // https://webpack.docschina.org/configuration/cache/
   cache: { type: 'memory' },
@@ -17,7 +20,7 @@ const config: Configuration = {
   },
   devServer: {
     hot: true,
-    open: true,
+    // open: true,
     static: {
       // directory: path.join(__dirname, './dist'),
     },
@@ -48,6 +51,6 @@ const config: Configuration = {
     // }),
     new ReactRefreshWebpackPlugin(),
   ],
-}
+})
 
-export default merge(commonConfig, config)
+export default config

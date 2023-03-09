@@ -1,4 +1,4 @@
-export const handler = (
+export const handleProgress = (
   percentage: number,
   message: string,
   ...args: string[]
