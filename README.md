@@ -939,3 +939,4 @@ module.exports = {
 - [Module Resolution or Import Alias: The Final Guide](https://www.raulmelo.dev/blog/module-resolution-or-import-alias-the-final-guide)
 - [Webpack 原理系列九：Tree-Shaking 实现原理](https://segmentfault.com/a/1190000040814997)
 - [Configuring aliases in webpack + VS Code + Typescript + Jest](https://www.basefactor.com/configuring-aliases-in-webpack-vs-code-typescript-jest)
+- [webpack5从零搭建完整的react18+ts开发和打包环境](https://juejin.cn/post/7111922283681153038)

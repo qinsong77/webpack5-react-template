@@ -57,31 +57,31 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'react/prop-types': 'off',
 
-    'import/order': [
-      'error',
-      {
-        groups: [
-          ['external', 'builtin'],
-          'internal',
-          ['sibling', 'parent'],
-          'index',
-        ],
-        pathGroups: [
-          {
-            pattern: '@(react|react-dom)',
-            group: 'external',
-            position: 'before',
-          },
-          {
-            pattern: '@src/**',
-            group: 'internal',
-          },
-        ],
-        pathGroupsExcludedImportTypes: ['internal', 'react'],
-        'newlines-between': 'always',
-        alphabetize: { order: 'asc', caseInsensitive: true },
-      },
-    ],
+    // 'import/order': [
+    //   'error',
+    //   {
+    //     groups: [
+    //       ['external', 'builtin'],
+    //       'internal',
+    //       ['sibling', 'parent'],
+    //       'index',
+    //     ],
+    //     pathGroups: [
+    //       {
+    //         pattern: '@(react|react-dom)',
+    //         group: 'external',
+    //         position: 'before',
+    //       },
+    //       {
+    //         pattern: '@src/**',
+    //         group: 'internal',
+    //       },
+    //     ],
+    //     pathGroupsExcludedImportTypes: ['internal', 'react'],
+    //     'newlines-between': 'always',
+    //     alphabetize: { order: 'asc', caseInsensitive: true },
+    //   },
+    // ],
     'import/default': 'off',
     'import/no-named-as-default-member': 'off',
     'import/no-named-as-default': 'off',

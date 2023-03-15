@@ -2,12 +2,12 @@
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
  */
-
 export default {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   moduleNameMapper: {
     '\\.(css|sass|scss)$': 'identity-obj-proxy',
+    '@/(.*)': '<rootDir>/src/$1',
   },
   transform: {
     '\\.[jt]sx?$': 'babel-jest',
