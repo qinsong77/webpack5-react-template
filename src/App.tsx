@@ -1,6 +1,7 @@
 import Button from '@/components/Button'
 
 import logo from './assets/logo.svg'
+
 import './App.css'
 
 const App = () => {

@@ -1,11 +1,13 @@
 {
   // .ts 配置 https://webpack.js.org/configuration/configuration-languages
   "compilerOptions": {
+    "composite": true,
     "module": "commonjs",
     "target": "es5",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "downlevelIteration": true
   },
-  "include": ["webpack"]
+  "include": ["webpack"],
+  "exclude": ["node_modules"]
 }
