@@ -1,6 +1,25 @@
 # 从零搭建 webpack5 + React + Typescript + Jest 基础模版
 
-> not done
+> WIP
+
+- [x] Webpack5
+  - [x] dev/build
+  - [x] analyzer
+  - [x] React hot refresh
+- [x] Typescript
+- [x] Test
+  - [x] Jest
+  - [x] RTL
+- [x] Code style/Lint
+  - [x] husky
+  - [x] eslint
+  - [x] prettier
+  - [x] commitlint
+- [x] Babel
+- [x] Env
+- [x] postcss
+- [ ] mock serve
+
 
 - [React 开发思想纲领](https://juejin.cn/post/7076244324614144014#heading-9)
 - [react 项目架构指南：Bulletproof React](https://github.com/alan2207/bulletproof-react)
@@ -495,24 +514,23 @@ pnpm add postcss postcss-loader postcss-preset-env postcss-flexbugs-fixes postcs
 
 [ESLint](https://eslint.org/)是一个前端标准的静态代码检查工具，它可以根据配置的规则来检查代码是否符合规范。
 
-
-**`plugins` 只是开启了这个插件，而 `extends` 则会继承别人写好的一份 `.eslintrc` 的配置，这份配置不仅仅包括了 `rules` 还有 `parser`，`plugins` 之类的东西。**
-
-
-**注意：要把 Prettier 的推荐配置 `plugin:prettier/recommended` 放在 `extends` 最后一项。**
-
-[Prettier](https://prettier.io/)是一个代码格式化工具。 ESLint 是通过制定的的规范来检查代码的，这里的 **规范** 有两种：
+而 [Prettier](https://prettier.io/) 是一个代码格式化工具。 ESLint 是通过制定的的规范来检查代码的，这里的 **规范** 有两种：
 
 * 代码风格规范
 * 代码质量规范
 
-Prettier 主要负责的是代码风格。
+Prettier 主要负责的是**代码风格**。
 
 ### `extends` vs `plugins`
 
-这一节我想聊聊 ESLint 中 `extends` 和 `plugins` 这两个配置参数的区别，相信这会困扰很多人。
+ ESLint 中 `extends` 和 `plugins` 这两个配置参数的区别总是会困扰。
 
-举个例子，假如我们要配置 ESLint x TypeScript，可以看到官网有这样的配置：
+**`plugins` 只是开启了这个插件，而 `extends` 则会继承别人写好的一份 `.eslintrc` 的配置，这份配置不仅仅包括了 `rules`, 还有 `parser`，`plugins` 之类的东西。**
+
+**注意：要把 `Prettier` 的推荐配置 `plugin:prettier/recommended` 放在 `extends` 最后一项。**
+
+
+举个例子，假如我们要配置 ESLint + TypeScript，可以看到官网有这样的配置：
 
 ```js
 module.exports = {
@@ -530,7 +548,7 @@ module.exports = {
 
 神奇的是，当你去掉 `plugins` 之后发现 `eslint` 依然可以正常工作。更神奇的是，只要你写了 `extends`，那么连 `parser` 也可以不用加，要知道没有指定 `parser` 选项，eslint 可看不懂你的 TypeScript 文件。
 
-所以说，到底是 `plugins` 加上了 TypeScript 的能力还是 `extends` 加上了 TypeScript 的规则呢？真让人头大，直到终于有一天受不了了，翻找了一下网上的资料发现了[这个帖子](https://stackoverflow.com/questions/61528185/eslint-extends-vs-plugins-v2020)。
+所以说，到底是 `plugins` 加上了 TypeScript 的能力还是 `extends` 加上了 TypeScript 的规则呢？很让人困惑，翻找了一下网上的资料发现了[这个帖子](https://stackoverflow.com/questions/61528185/eslint-extends-vs-plugins-v2020)。
 
 先来说结论吧：**`plugins` 只是开启了这个插件，而 `extends` 则会继承别人写好的一份 `.eslintrc` 的配置，这份配置不仅仅包括了 `rules` 还有 `parser`，`plugins` 之类的东西。**
 
@@ -584,19 +602,15 @@ module.exports = {
 ```shell
 pnpm add prettier -D
 pnpm add eslint -D
-pnpm add  @typescript-eslint/eslint-plugin @typescript-eslint/parser -D
+pnpm add @typescript-eslint/parser  @typescript-eslint/eslint-plugin -D
 pnpm add eslint-config-prettier eslint-plugin-prettier -D
 pnpm add eslint-plugin-react eslint-plugin-react-hooks -D
-pnpm add eslint-plugin-import -D
+pnpm add eslint-plugin-import eslint-import-resolver-typescript -D
 ```
-`eslint-plugin-import `
-
-
-支持 ES2015+ (ES6+) 导入/导出语法的 linting
-顾名思义，是对导入的模块进行排序，并防止文件路径和导入名称拼写错误的问题
-对比排序前后代码，排序后的代码看起来更整洁，
-
-
+- `eslint-plugin-import `: This plugin intends to support linting of ES2015+ (ES6+) import/export **syntax**(支持 ES2015+ (ES6+) 导入/导出语法的 linting), and prevent issues with misspelling of file paths and import names.
+- `eslint-import-resolver-typescript`: This plugin adds `TypeScript` support to `eslint-plugin-import`
+- [`eslint-plugin-simple-import-sort`](https://github.com/lydell/eslint-plugin-simple-import-sort) : Easy autofixable import sorting.
+### crate-react-app使用的配置
 - [eslint-config-react-app](https://www.npmjs.com/package/eslint-config-react-app)
 
 ## lint-stage, husky, commitlint

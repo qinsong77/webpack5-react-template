@@ -45,6 +45,8 @@ const config: Configuration = {
       // all options are optional
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].chunk.css',
+      // 常遇到如下警告，Conflicting order. Following module has been added:…。
+      // 此警告意思为在不同的js中引用相同的css时，先后顺序不一致。也就是说，在1.js中先后引入a.css和b.css，而在2.js中引入的却是b.css和a.css，此时会有这个warning。
       ignoreOrder: false, // Enable to remove warnings about conflicting order
     }),
     // new InlineRuntimeChunkPlugin(),

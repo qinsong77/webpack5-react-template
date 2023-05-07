@@ -7,12 +7,14 @@ module.exports = {
     // commonjs: true,
     es2021: true,
   },
-  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2021,
   },
   globals: {},
-  plugins: [],
+  plugins: [
+    // https://github.com/lydell/eslint-plugin-simple-import-sort/#example-configuration
+    'simple-import-sort',
+  ],
   extends: [
     // ESLint
     'eslint:recommended',
@@ -27,15 +29,13 @@ module.exports = {
     'plugin:react-hooks/recommended',
     // Static AST checker for accessibility rules on JSX elements.
     'plugin:jsx-a11y/recommended',
-    // Prettier
-    'plugin:prettier/recommended',
+    // test
     'plugin:testing-library/react',
     'plugin:jest-dom/recommended',
+    // Prettier
+    'plugin:prettier/recommended',
   ],
   settings: {
-    'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx'],
-    },
     'import/resolver': {
       typescript: {},
     },
@@ -44,59 +44,43 @@ module.exports = {
     },
   },
   rules: {
-    // 'prettier/prettier': 'error',
-    'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'import/no-unresolved': 'error',
-    'no-restricted-imports': [
-      'error',
-      {
-        patterns: ['@/features/*/*'],
-      },
-    ],
-    'linebreak-style': ['error', 'unix'],
-    'react/prop-types': 'off',
-
-    // 'import/order': [
-    //   'error',
-    //   {
-    //     groups: [
-    //       ['external', 'builtin'],
-    //       'internal',
-    //       ['sibling', 'parent'],
-    //       'index',
-    //     ],
-    //     pathGroups: [
-    //       {
-    //         pattern: '@(react|react-dom)',
-    //         group: 'external',
-    //         position: 'before',
-    //       },
-    //       {
-    //         pattern: '@src/**',
-    //         group: 'internal',
-    //       },
-    //     ],
-    //     pathGroupsExcludedImportTypes: ['internal', 'react'],
-    //     'newlines-between': 'always',
-    //     alphabetize: { order: 'asc', caseInsensitive: true },
-    //   },
-    // ],
-    'import/default': 'off',
-    'import/no-named-as-default-member': 'off',
-    'import/no-named-as-default': 'off',
-
+    // 'react/jsx-uses-react': 'off',
     // 'react/react-in-jsx-scope': 'off',
 
-    'jsx-a11y/anchor-is-valid': 'off',
-
-    '@typescript-eslint/no-unused-vars': ['error'],
-
-    '@typescript-eslint/explicit-function-return-type': ['off'],
-    '@typescript-eslint/explicit-module-boundary-types': ['off'],
-    '@typescript-eslint/no-empty-function': ['off'],
-    '@typescript-eslint/no-explicit-any': ['off'],
-
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+
+    // for eslint-plugin-simple-import-sort
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
+    'import/first': 'error',
+    'import/newline-after-import': 'error',
+    'import/no-duplicates': 'error',
   },
+  overrides: [
+    // override "simple-import-sort" config form https://dev.to/julioxavierr/sorting-your-imports-with-eslint-3ped
+    {
+      files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
+      rules: {
+        'simple-import-sort/imports': [
+          'error',
+          {
+            groups: [
+              // Packages `react` related packages come first.
+              ['^react', '^@?\\w'],
+              // Internal packages.
+              ['^(@|components)(/.*|$)'],
+              // Side effect imports.
+              ['^\\u0000'],
+              // Parent imports. Put `..` last.
+              ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+              // Other relative imports. Put same-folder imports and `.` last.
+              ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+              // Style imports.
+              ['^.+\\.?(css)$'],
+            ],
+          },
+        ],
+      },
+    },
+  ],
 }

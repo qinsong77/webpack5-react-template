@@ -1,14 +1,11 @@
-// .ts 配置 https://webpack.js.org/configuration/configuration-languages
-import * as path from 'path'
-
 import FriendlyErrorsWebpackPlugin from '@soda/friendly-errors-webpack-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import * as path from 'path'
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin'
 import type { Configuration } from 'webpack'
 import WebpackBar from 'webpackbar'
-// import * as webpack from 'webpack'
 
 import { IS_DEV } from './config'
 // import { handleProgress } from './utils/handleProgress'

@@ -1,7 +1,8 @@
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import type { Configuration } from 'webpack'
-import 'webpack-dev-server'
 import merge from 'webpack-merge'
+
+import 'webpack-dev-server'
 
 import commonConfig from './webpack.common'
 
@@ -39,18 +40,7 @@ const config: Configuration = merge(commonConfig, {
     },
     proxy: {},
   },
-  plugins: [
-    // new MiniCssExtractPlugin({
-    //   // Options similar to the same options in webpackOptions.output
-    //   // all options are optional
-    //   filename: 'css/[name].css',
-    //   chunkFilename: 'css/[name].chunk.css',
-    //   // 常遇到如下警告，Conflicting order. Following module has been added:…。
-    //   // 此警告意思为在不同的js中引用相同的css时，先后顺序不一致。也就是说，在1.js中先后引入a.css和b.css，而在2.js中引入的却是b.css和a.css，此时会有这个warning。
-    //   ignoreOrder: true,
-    // }),
-    new ReactRefreshWebpackPlugin(),
-  ],
+  plugins: [new ReactRefreshWebpackPlugin()],
 })
 
 export default config
