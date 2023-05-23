@@ -44,6 +44,8 @@ module.exports = {
     },
   },
   rules: {
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
+    'react/jsx-curly-brace-presence': 'error',
     // 'react/jsx-uses-react': 'off',
     // 'react/react-in-jsx-scope': 'off',
 
