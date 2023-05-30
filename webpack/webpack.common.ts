@@ -7,7 +7,7 @@ import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin'
 import type { Configuration } from 'webpack'
 import WebpackBar from 'webpackbar'
 
-import { IS_DEV } from './config'
+import { IS_DEV, PUBLIC_PATH } from './config'
 // import { handleProgress } from './utils/handleProgress'
 
 // fix error: tsconfig-paths-webpack-plugin: Found no baseUrl in tsconfig.json, not applying tsconfig-paths-webpack-plugin
@@ -23,7 +23,7 @@ const config: Configuration = {
   output: {
     // 相当于 clean-webpack-plugin
     clean: true,
-    publicPath: '',
+    publicPath: PUBLIC_PATH,
     path: path.resolve(__dirname, '../dist'),
     filename: IS_DEV
       ? 'js/[name].bundle.js'
@@ -78,7 +78,16 @@ const config: Configuration = {
         use: [
           // 生产模式使用 mini-css-extract-plugin 插件分离 JS/CSS 文件实现并行加载，而开发环境选择 style-loader 它可以使用多个标签将 CSS 插入到 DOM 中，并且反应会更快。
           IS_DEV ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              // importLoaders: 1, // https://webpack.docschina.org/loaders/css-loader#importloaders
+              //  todo 和tailwindcss冲突，加了tailwindcss就不work了
+              // modules: {
+              //   localIdentName: '[name]_[local]_[hash:base64:5]',
+              // },
+            },
+          },
           'postcss-loader',
         ],
       },
@@ -97,7 +106,7 @@ const config: Configuration = {
       template: './public/index.html',
       title: 'webpack react app',
       description: 'webpack react app',
-      publicPath: '',
+      publicPath: PUBLIC_PATH,
       minify: {
         removeComments: true, // 删除注释
         collapseWhitespace: true,

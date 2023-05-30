@@ -1,9 +1,10 @@
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import type { Configuration } from 'webpack'
-import merge from 'webpack-merge'
+import { default as merge } from 'webpack-merge'
 
 import 'webpack-dev-server'
 
+import { DEV_PROXY } from './config'
 import commonConfig from './webpack.common'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -12,13 +13,13 @@ import commonConfig from './webpack.common'
 const config: Configuration = merge(commonConfig, {
   mode: 'development',
   // https://webpack.docschina.org/configuration/cache/
-  cache: { type: 'memory' },
+  cache: { type: 'filesystem' },
   devtool: 'eval-cheap-module-source-map',
-  watchOptions: {
-    aggregateTimeout: 500,
-    poll: 1000,
-    ignored: /node_modules/,
-  },
+  // watchOptions: {
+  //   aggregateTimeout: 500,
+  //   poll: 1000,
+  //   ignored: /node_modules/,
+  // },
   devServer: {
     hot: true,
     // open: true,
@@ -38,7 +39,7 @@ const config: Configuration = merge(commonConfig, {
         warnings: true,
       },
     },
-    proxy: {},
+    proxy: DEV_PROXY,
   },
   plugins: [new ReactRefreshWebpackPlugin()],
 })

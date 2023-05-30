@@ -1,5 +1,6 @@
 import { config as loadConfig } from 'dotenv'
 import * as path from 'path'
+import type { Configuration } from 'webpack'
 
 export const ROOT_PATH = path.resolve(__dirname, '../')
 
@@ -13,3 +14,7 @@ const ENV_CONFIG_PATH = path.resolve(ROOT_PATH, 'env', `${NODE_ENV}.env`)
 loadConfig({
   path: ENV_CONFIG_PATH,
 })
+
+export const PUBLIC_PATH = '/'
+
+export const DEV_PROXY: Configuration['devServer']['proxy'] = {}

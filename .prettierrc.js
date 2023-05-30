@@ -15,4 +15,10 @@ module.exports = {
   jsxSingleQuote: false, // jsx中是否使用单引号
   endOfLine: 'auto', // 结尾是 \n \r \n\r auto
   bracketSameLine: false, // 将>多行JSX元素放在最后一行的末尾，而不是单独放在下一行
+  // tailwindcss
+  plugins: [
+    // https://github.com/tailwindlabs/prettier-plugin-tailwindcss
+    'prettier-plugin-tailwindcss', // MUST come last
+  ],
+  tailwindFunctions: ['clsx'],
 }

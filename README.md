@@ -3,6 +3,7 @@
 > WIP
 
 - [x] Webpack5
+  - [x] config by typescript
   - [x] dev/build
   - [x] analyzer
   - [x] React hot refresh
@@ -19,10 +20,17 @@
 - [x] Env
 - [x] postcss
 - [ ] mock serve
+- [ ] Tailwindcss
+- [ ] Zustand
+- [ ] Axios + Ahook useRequest
 
 
 - [React 开发思想纲领](https://juejin.cn/post/7076244324614144014#heading-9)
 - [react 项目架构指南：Bulletproof React](https://github.com/alan2207/bulletproof-react)
+
+css方案 - not now for using vanilla
+https://2022.stateofcss.com/zh-Hans/
+https://vanilla-extract.style/
 
 ## 初始化 package.json
 
@@ -506,10 +514,31 @@ last 1 firefox version
 
 postcss其实就是类似css中的babel的作用，
 
+### [tailwindcss](https://tailwindcss.com/docs/installation/using-postcss)
+
+1. `pnpm add tailwindcss -D`
+2. `postcss.config.js`引入`tailwindcss`作为plugin
+3. 修改index.css, 引入`tailwindcss`组件(如官网`@tailwind base;` etc...)
+
+* 巨坑，和css-loader配置`modules`冲突,`modules`有了tailwindcss就不work了
+
+```
+{
+        loader: 'css-loader',
+        options: {
+          modules: {
+            localIdentName: '[local]_[hash:base64:5]',
+          },
+        },
+      },
+```
 ```shell
 pnpm add postcss postcss-loader postcss-preset-env postcss-flexbugs-fixes postcss-normalize -D
 ```
 
+[X] Maybe [unocss](https://unocss.dev/guide/) is better?
+
+[transform-to-unocss](https://github.com/Simon-He95/transformToUnocss/blob/main/README_zh.md)
 ## eslint, Prettier
 
 [ESLint](https://eslint.org/)是一个前端标准的静态代码检查工具，它可以根据配置的规则来检查代码是否符合规范。
