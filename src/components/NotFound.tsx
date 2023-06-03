@@ -1,6 +1,6 @@
 import { Link, useRouteError } from 'react-router-dom'
 
-export const ErrorPage = () => {
+export const NotFound = () => {
   const error: any = useRouteError()
   console.error(error)
 

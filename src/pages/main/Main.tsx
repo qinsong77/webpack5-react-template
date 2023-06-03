@@ -2,8 +2,9 @@ import { Link, Outlet } from 'react-router-dom'
 
 export const Main = () => {
   return (
-    <article>
-      <aside>
+    <section className="flex">
+      <aside className="bg-amber-50 p-3">
+        <h3 className="text-2xl text-cyan-400">this is aside</h3>
         <ul>
           <li>
             <Link to="/main">main</Link>
@@ -20,6 +21,6 @@ export const Main = () => {
         </ul>
       </aside>
       <Outlet />
-    </article>
+    </section>
   )
 }

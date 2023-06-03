@@ -21,9 +21,12 @@ code {
     monospace;
 }
 
-li > a {
-  color: #0074d9;
-  font-size: 14px;
-  text-decoration: underline;
-  margin: 10px;
+
+@layer components {
+  .btn-blue {
+    @apply rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700;
+  }
+  .link {
+    @apply m-1 text-blue-600 hover:text-blue-900 underline;
+  }
 }

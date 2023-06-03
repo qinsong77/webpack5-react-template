@@ -8,16 +8,36 @@ const Header: FC<{ className: string }> = ({ className }) => {
       <h5 className="red text-xl"> this is header</h5>
       <ul className="flex">
         <li>
-          <Link to="/main">main</Link>
+          <Link
+            className="link"
+            to="/main"
+          >
+            main
+          </Link>
         </li>
         <li>
-          <Link to="/main/article">main article</Link>
+          <Link
+            className="link"
+            to="/main/article"
+          >
+            main article
+          </Link>
         </li>
         <li>
-          <Link to="/introduce">introduce</Link>
+          <Link
+            className="link"
+            to="/introduce"
+          >
+            introduce
+          </Link>
         </li>
         <li>
-          <Link to="/">home</Link>
+          <Link
+            className="link"
+            to="/"
+          >
+            home
+          </Link>
         </li>
       </ul>
     </header>

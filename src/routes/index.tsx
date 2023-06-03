@@ -1,11 +1,10 @@
 import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom'
 
 import { Layout } from '@/components/Layout'
-import { ErrorPage } from '@/pages/error-page'
+import { NotFound } from '@/components/NotFound'
 import { Home } from '@/pages/home'
 import { Introduce } from '@/pages/introduce'
-import { Dashboard, Discussion, List, Post, Profile } from '@/pages/main'
-import { Main } from '@/pages/main/Main'
+import { Dashboard, Discussion, List, Main, Post, Profile } from '@/pages/main'
 
 const authRouters: RouteObject[] = [
   // { path: '/discussienes/*', element: <DiscussionsRoutes /> },
@@ -39,7 +38,7 @@ export const routers = createBrowserRouter([
     path: '/',
     element: <Layout />,
     // 404
-    errorElement: <ErrorPage />,
+    errorElement: <NotFound />,
     children: mainRouters,
   },
 ])
