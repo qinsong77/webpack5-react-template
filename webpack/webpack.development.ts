@@ -15,11 +15,11 @@ const config: Configuration = merge(commonConfig, {
   // https://webpack.docschina.org/configuration/cache/
   cache: { type: 'filesystem' },
   devtool: 'eval-cheap-module-source-map',
-  // watchOptions: {
-  //   aggregateTimeout: 500,
-  //   poll: 1000,
-  //   ignored: /node_modules/,
-  // },
+  watchOptions: {
+    aggregateTimeout: 500,
+    poll: 1000,
+    ignored: ['**/node_modules'],
+  },
   devServer: {
     hot: true,
     // open: true,

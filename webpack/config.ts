@@ -17,4 +17,12 @@ loadConfig({
 
 export const PUBLIC_PATH = '/'
 
-export const DEV_PROXY: Configuration['devServer']['proxy'] = {}
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+export const DEV_PROXY: Configuration['devServer']['proxy'] = {
+  '/api': {
+    target: 'https://petstore3.swagger.io',
+    changeOrigin: true,
+    // pathRewrite: {'^/api' : ''}
+  },
+}

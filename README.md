@@ -4,8 +4,7 @@
 
 - [x] Webpack5
   - [x] config by typescript
-  - [x] dev/build
-  - [x] analyzer
+  - [x] dev/build/analyzer
   - [x] React hot refresh
 - [x] Typescript
 - [x] Test
@@ -20,17 +19,16 @@
 - [x] Env
 - [x] postcss
 - [ ] mock serve
-- [ ] Tailwindcss
+- [ ] [Tailwindcss](https://tailwindcss.com/)
+- [ ] [Router](https://reactrouter.com/en/main)
 - [ ] Zustand
+- [ ] Generate Api
 - [ ] Axios + Ahook useRequest
 
 
 - [React 开发思想纲领](https://juejin.cn/post/7076244324614144014#heading-9)
 - [react 项目架构指南：Bulletproof React](https://github.com/alan2207/bulletproof-react)
 
-css方案 - not now for using vanilla
-https://2022.stateofcss.com/zh-Hans/
-https://vanilla-extract.style/
 
 ## 初始化 package.json
 
@@ -62,7 +60,7 @@ pnpm add typescript -D
 pnpm exec tsc --init 
 ```
 
-这个时候项目跟目录下会生成一份`tsconfig.json`文件，删除了多余的注释，内容如下: 
+这个时候项目根目录下会生成一份`tsconfig.json`文件，删除了多余的注释，内容如下: 
 ```shell
 {
     "compilerOptions": {
@@ -175,7 +173,7 @@ import constant from './constant'
 console.log(constant)
 ```
 
-不管是 `ts` 还是 `babel`，在将 `esm `编译为 cjs 的时候，对于 `export default` 的处理，都会放在一个 `default `的属性上，即 `module.exports.default = xxx`，上面编译的结果大致为：
+不管是 `ts` 还是 `babel`，在将 `esm `编译为 `cjs` 的时候，对于 `export default` 的处理，都会放在一个 `default `的属性上，即 `module.exports.default = xxx`，上面编译的结果大致为：
 
 ```js
 "use strict";
@@ -360,14 +358,14 @@ pnpm add html-webpack-plugin @pmmmwh/react-refresh-webpack-plugin react-refresh 
   <head>
     <meta charset="utf-8" />
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <link rel="icon" href="<%= htmlWebpackPlugin.options.publicPath %>/favicon.ico" />
+    <link rel="icon" href="<%= htmlWebpackPlugin.options.publicPath %>favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="<%= htmlWebpackPlugin.options.description %>"
     />
-    <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.options.publicPath %>/logo192.png" />
+    <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.options.publicPath %>logo192.png" />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -426,11 +424,11 @@ pnpm i babel-loader @babel/core @babel/preset-env @babel/preset-react @babel/pre
 - [前端基建」探索不同项目场景下Babel最佳实践方案](https://juejin.cn/post/7051355444341637128)
 
 - [@babel/preset-env 与@babel/plugin-transform-runtime 使用及场景区别](https://segmentfault.com/a/1190000021188054)
-- [babel-loader](https://webpack.docschina.org/loaders/babel-loader): 使用 Babel 和 webpack 转译 JavaScript 等文件，内部核心转译功能需要@babel/core这个核心库。
+- [babel-loader](https://webpack.docschina.org/loaders/babel-loader): 使用 Babel 和 webpack 转译 JavaScript 等文件，内部核心转译功能需要`@babel/core`这个核心库。
 - `@babel/core`: `@babel/core`是babel的核心库，所有的核心api都在这个库里，这些api可供`babel-loader`调用
-- [@babel/preset-env](https://babel.docschina.org/docs/en/babel-preset-env/): 这是一个预设的插件集合，包含了一组相关的插件，Babel中是通过各种插件来指导如何进行代码转换。该插件包含所有es6转化为es5的翻译规则。可以做到按需加载我们需要的 polyfill
+- [@babel/preset-env](https://babel.docschina.org/docs/en/babel-preset-env/): 这是一个预设的插件集合，包含了一组相关的插件，Babel中是通过各种插件来指导如何进行代码转换。该插件包含所有es6转化为es5的翻译规则。可以做到按需加载我们需要的 `polyfill`
 
-> @babel/prest-env是babel转译过程中的一些预设，它负责将一些基础的es 6+语法，比如const/let...转译成为浏览器可以识别的低级别兼容性语法。这里需要注意的是@babel/prest-env并不会对于一些es6+高版本语法的实现，比如Promise等polyfill，你可以将它理解为语法层面的转化不包含高级别模块(polyfill)的实现。
+> @babel/prest-env是babel转译过程中的一些预设，它负责将一些基础的es 6+语法，比如const/let...转译成为浏览器可以识别的低级别兼容性语法。这里需要注意的是`@babel/prest-env`并不会对于一些es6+高版本语法的实现，比如`Promise`等polyfill，你可以将它理解为语法层面的转化不包含高级别模块(polyfill)的实现。
 
 - @babel/runtime:  is a library that contains Babel modular runtime helpers. preset-env的polyfill会污染全局环境，项目开发可以接受，但做library时最好避免，不应该污染全局，并且应该提供更好的打包体积和效率
 - @babel/plugin-transform-runtime: A plugin that enables the re-use of Babel's injected helper code to save on codesize.
@@ -539,6 +537,7 @@ pnpm add postcss postcss-loader postcss-preset-env postcss-flexbugs-fixes postcs
 [X] Maybe [unocss](https://unocss.dev/guide/) is better?
 
 [transform-to-unocss](https://github.com/Simon-He95/transformToUnocss/blob/main/README_zh.md)
+
 ## eslint, Prettier
 
 [ESLint](https://eslint.org/)是一个前端标准的静态代码检查工具，它可以根据配置的规则来检查代码是否符合规范。
@@ -977,8 +976,28 @@ module.exports = {
 - gzip size：被压缩以后的文件大小
 
 
+## 技术选型
+
+### css方案
+
+[stateofcss](https://2022.stateofcss.com/zh-Hans/)
+
+#### [vanilla](https://vanilla-extract.style/)
+
+Zero-runtime Stylesheets in TypeScript. But not now for using vanilla
+
+### Generate API automatically
+使用[Swagger Petstore - OpenAPI 3.0](https://petstore3.swagger.io/) 测试
+- [pont](https://github.com/alibaba/pont), 不是特别好用，懒得配置
+- [swagger-typescript-api](https://github.com/acacode/swagger-typescript-api) Generate api via swagger scheme.
+  Supports OA 3.0, 2.0, JSON, yaml
+  Generated api module use Fetch Api or Axios to make requests.
+- [ts-codegen](https://github.com/reeli/ts-codegen)Typescript code generator from swagger. 一个生成前端接口层代码和对应 TypeScript 定义的工具。
+
+
+## Reference
 - [Eslint + Prettier + Husky + Commitlint+ Lint-staged 规范前端工程代码规范](https://juejin.cn/post/7038143752036155428)
-- [爆肝从零搭建React+webpack5+Typescript模板](https://juejin.cn/post/7020972849649156110)
+- [搭建react项目脚手架的](https://juejin.cn/post/7235547967112806437)
 - [Module Resolution or Import Alias: The Final Guide](https://www.raulmelo.dev/blog/module-resolution-or-import-alias-the-final-guide)
 - [Webpack 原理系列九：Tree-Shaking 实现原理](https://segmentfault.com/a/1190000040814997)
 - [Configuring aliases in webpack + VS Code + Typescript + Jest](https://www.basefactor.com/configuring-aliases-in-webpack-vs-code-typescript-jest)
