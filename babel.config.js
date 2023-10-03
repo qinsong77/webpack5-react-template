@@ -6,6 +6,7 @@ module.exports = {
       '@babel/preset-env',
       {
         useBuiltIns: 'usage',
+        // https://babeljs.io/docs/babel-preset-env#corejs
         corejs: {
           version: 3,
           proposals: true, // 使用尚在提议阶段特性的 polyfill
