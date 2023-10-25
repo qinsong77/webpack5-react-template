@@ -5,10 +5,22 @@ import App from './App'
 
 import './index.css'
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+async function prepareApp() {
+  if (
+    process.env.NODE_ENV === 'development' ||
+    process.env.NODE_ENV === 'test'
+  ) {
+    const { worker } = await import('./__mocks__/browser')
+    return worker.start()
+  }
 
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-)
+  return Promise.resolve()
+}
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+prepareApp().then(() => {
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  )
+})

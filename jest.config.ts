@@ -3,7 +3,9 @@
  * https://jestjs.io/docs/configuration
  */
 export default {
+  rootDir: __dirname,
   testEnvironment: 'jsdom',
+  setupFiles: ['<rootDir>/jest/jest.polyfills.ts'],
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   moduleNameMapper: {
     '\\.(css|sass|scss)$': 'identity-obj-proxy',
@@ -16,6 +18,19 @@ export default {
   },
   // 是否显示覆盖率报告
   collectCoverage: true,
+  // msw - https://github.com/mswjs/examples/blob/main/examples/with-jest/jest.config.ts#L20
+  testEnvironmentOptions: {
+    /**
+     * @note Opt-out from JSDOM using browser-style resolution
+     * for dependencies. This is simply incorrect, as JSDOM is
+     * not a browser, and loading browser-oriented bundles in
+     * Node.js will break things.
+     *
+     * Consider migrating to a more modern test runner if you
+     * don't want to deal with this.
+     */
+    customExportConditions: [''],
+  },
 }
 // export default {
 //   // All imported modules in your tests should be mocked automatically

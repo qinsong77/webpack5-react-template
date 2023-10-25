@@ -9,9 +9,9 @@ const axiosInstance = axios.create({
 })
 
 axiosInstance.interceptors.request.use((req) => req)
-axiosInstance.interceptors.response.use((res) => res)
+axiosInstance.interceptors.response.use((res) => res?.data)
 
-export const createRequest = <TReq, TResp = any>(
+export const createRequest = <TReq, TResp>(
   _: string,
   requestConfigCreator: (args: TReq) => AxiosRequestConfig
 ) => {

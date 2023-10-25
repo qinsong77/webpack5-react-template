@@ -17,7 +17,7 @@
     "noFallthroughCasesInSwitch": true /* 在 switch 语句中报告失败情况的错误。 */,
 
     "resolveJsonModule": true /* 可以导入json文件 */,
-    "isolatedModules": true /* 将每个文件转换为一个单独的模块（类似于 'ts.transpileModule'）。 */,
+    "isolatedModules": false /* 将每个文件转换为一个单独的模块（类似于 'ts.transpileModule'）。 */,
     "jsx": "react-jsx" /* 指定 JSX 格式：'preserve'、'react-native' 或 'react'。 */,
 
     "skipLibCheck": true /* 跳过声明文件的类型检查。 */,
@@ -31,7 +31,7 @@
   },
   "include": ["src"],
   /* 不进行类型检查的文件 */
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx", "src/__tests__/**/*"], // TODO 为了`fork-ts-checker-webpack-plugin`
   "references": [
     {
       "path": "./tsconfig.webpack.json"

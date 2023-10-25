@@ -19,12 +19,15 @@
 - [x] Env
 - [x] postcss
 - [ ] mock serve
+  - [msw](https://mswjs.io/docs) for mock server and test, refer: [Stop mocking fetch](https://kentcdodds.com/blog/stop-mocking-fetch)
 - [ ] [Tailwindcss](https://tailwindcss.com/)
 - [ ] [Router](https://reactrouter.com/en/main)
 - [ ] Zustand
 - [ ] Generate Api
 - [ ] Axios + Ahook useRequest
 
+> Issues
+- [] `fork-ts-checker-webpack-plugin`会使用`tsconfig.json`的include的字段里去check文件，导致webpack dev时测试文件类型有问题也会报错，暂时是exclude排除了
 
 - [React 开发思想纲领](https://juejin.cn/post/7076244324614144014#heading-9)
 - [react 项目架构指南：Bulletproof React](https://github.com/alan2207/bulletproof-react)
