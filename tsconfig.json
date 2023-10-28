@@ -31,7 +31,12 @@
   },
   "include": ["src"],
   /* 不进行类型检查的文件 */
-  "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx", "src/__tests__/**/*"], // TODO 为了`fork-ts-checker-webpack-plugin`
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "src/__tests__/**/*"
+  ], // TODO 为了`fork-ts-checker-webpack-plugin` run server 时不check test
   "references": [
     {
       "path": "./tsconfig.webpack.json"

@@ -8,7 +8,7 @@ export const Layout: FC = () => {
     <div className="flex h-screen flex-col">
       <Header className="bg-gray-50 p-4" />
 
-      <main className="flex-grow bg-gray-200 p-2">
+      <main className="flex-grow p-2">
         <Outlet />
       </main>
       <footer className="bg-slate-100 p-2 p-4 text-center text-xs text-slate-700">
