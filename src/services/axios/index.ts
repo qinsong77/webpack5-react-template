@@ -24,6 +24,6 @@ export const createRequest = <TReq, TResp = unknown>(
         ...apiConfig.headers,
         ...customerConfig?.headers,
       },
-    })
+    }) as unknown as Promise<TResp> // todo type
   }
 }

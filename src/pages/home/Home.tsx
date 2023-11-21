@@ -1,5 +1,4 @@
 import logo from '@/assets/logo.svg'
-import Header from '@/components/Layout/Header'
 
 import styles from './Home.module.css'
 

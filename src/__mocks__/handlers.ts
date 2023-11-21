@@ -1,4 +1,4 @@
-import { delay, graphql, http, HttpResponse } from 'msw'
+import { graphql, http, HttpResponse } from 'msw'
 
 export const handlers = [
   http.get('https://api.example.com/user', () => {
@@ -49,11 +49,23 @@ export const handlers = [
   http.get('/api/v3/pet/findByStatus', async ({ params }) => {
     const { status } = params
     console.log('/api/v3/pet/findByStatus:' + status)
-    await delay(2000)
-    return HttpResponse.json({
-      approved: 65,
-      placed: 0,
-      delivered: 5,
-    })
+    return HttpResponse.json([
+      {
+        id: 10,
+        name: 'doggie',
+        category: {
+          id: 1,
+          name: 'Dogs',
+        },
+        photoUrls: ['string'],
+        tags: [
+          {
+            id: 0,
+            name: 'string',
+          },
+        ],
+        status: 'available',
+      },
+    ])
   }),
 ]

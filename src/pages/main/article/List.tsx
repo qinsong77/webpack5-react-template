@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 
-import { useBearStore } from '@/stores'
+import { useBearStore } from '@/store/useBearStore'
 
 export const List = () => {
   // todo 这里increasePopulation应该也是显示黄色，是const zustand 会默认将所有的函数保持同一引用，但用combine: https://docs.pmnd.rs/zustand/guides/typescript#basic-usage就行，自定义类型不行

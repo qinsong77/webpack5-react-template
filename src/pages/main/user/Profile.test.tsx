@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react'
 
-import { Profile } from '@/pages/main'
+import { Profile } from './Profile'
 
 describe('test Profile', () => {
-  it('should st', async () => {
+  it('should', async () => {
     render(<Profile />)
     expect(screen.getByText('loading')).toBeInTheDocument()
-    await screen.findByText('65')
+    expect(await screen.findByText('approved: available')).toBeInTheDocument()
   })
 })

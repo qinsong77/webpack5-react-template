@@ -2,17 +2,19 @@ import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom'
 
 import { Layout } from '@/components/Layout'
 import { NotFound } from '@/components/NotFound'
-import { Home } from '@/pages/home'
-import { Introduce } from '@/pages/introduce'
-import { Dashboard, Discussion, List, Main, Post, Profile } from '@/pages/main'
+
+import { FormDemo } from '../pages/form-demo'
+import { Home } from '../pages/home'
+import { Introduce } from '../pages/introduce'
+import { Dashboard, Discussion, List, Main, Post, Profile } from '../pages/main'
 
 const authRouters: RouteObject[] = [
   // { path: '/discussienes/*', element: <DiscussionsRoutes /> },
+  { path: '', element: <Dashboard /> },
   { path: 'article', element: <Post /> },
   { path: 'profile', element: <Profile /> },
   { path: 'list/:listId', element: <List /> },
   { path: 'discussion', element: <Discussion /> },
-  { path: '', element: <Dashboard /> },
   { path: '*', element: <Navigate to="." /> },
 ]
 
@@ -29,6 +31,10 @@ const mainRouters: RouteObject[] = [
   {
     path: '/introduce',
     element: <Introduce />,
+  },
+  {
+    path: '/form-demo',
+    element: <FormDemo />,
   },
 ]
 

@@ -27,7 +27,11 @@
 - [ ] Axios + Ahook useRequest
 
 > Issues
-- [] `fork-ts-checker-webpack-plugin`会使用`tsconfig.json`的include的字段里去check文件，导致webpack dev时测试文件类型有问题也会报错，暂时是exclude排除了
+- [ ] `fork-ts-checker-webpack-plugin`会使用`tsconfig.json`的include的字段里去check文件，导致webpack dev时测试文件类型有问题也会报错，暂时是exclude排除了
+- [ ] `pnpm run codegen:api`报错，和升级`prettier`有关系，回退到`2.8.4`没问题
+- [x] 跑测试axios目前还报错 Network Error, 等msw修复。。
+- [ ] msw结合jest 中hack的比较多代码，need remove
+
 
 - [React 开发思想纲领](https://juejin.cn/post/7076244324614144014#heading-9)
 - [react 项目架构指南：Bulletproof React](https://github.com/alan2207/bulletproof-react)
@@ -171,7 +175,7 @@ export const a = 1
 const b = 2
 export default b 
 
-// index.ts
+// index.tsx
 import constant from './constant'
 console.log(constant)
 ```
@@ -185,7 +189,7 @@ exports.a = 1;
 var b = 2;
 exports.default = b;
 
-// index.ts
+// index.tsx
 var _constant = require("./constant");
 
 // esm 和 cjs 的兼容处理
@@ -232,7 +236,7 @@ TS1259: Module 'xxxx' has no default export.
     }
  }
  
-// index.ts
+// index.tsx
 import React from 'react';
 console.log(React.useEffect)
 

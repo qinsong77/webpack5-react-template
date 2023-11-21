@@ -22,21 +22,20 @@
 
     "skipLibCheck": true /* 跳过声明文件的类型检查。 */,
     "forceConsistentCasingInFileNames": true /* 禁止对同一文件的大小写不一致地引用。 */,
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "paths": {
       // 别名 tsconfig-paths-webpack-plugin 自动注入到webpack resolve
-      "@/*": ["src/*"],
-      "@images/*": ["src/assets/images/*"]
+      "@/assets/*": ["assets/*"],
+      "@/image/*": ["assets/images/*"],
+      "@/services/*": ["services/*"],
+      "@/components/*": ["components/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/store/*": ["store/*"]
     }
   },
   "include": ["src"],
   /* 不进行类型检查的文件 */
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts",
-    "**/*.spec.tsx",
-    "src/__tests__/**/*"
-  ], // TODO 为了`fork-ts-checker-webpack-plugin` run server 时不check test
+  "exclude": ["node_modules"],
   "references": [
     {
       "path": "./tsconfig.webpack.json"

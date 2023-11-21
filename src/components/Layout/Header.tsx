@@ -34,6 +34,14 @@ const Header: FC<{ className: string }> = ({ className }) => {
         <li>
           <Link
             className="link"
+            to="/form-demo"
+          >
+            form demo
+          </Link>
+        </li>
+        <li>
+          <Link
+            className="link"
             to="/"
           >
             home

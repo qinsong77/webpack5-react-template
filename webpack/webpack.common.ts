@@ -114,7 +114,13 @@ const config: Configuration = {
         minifyJS: true, // 压缩 HTML 中出现的 JS 代码
       },
     }),
-    new ForkTsCheckerWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        configOverwrite: {
+          exclude: ['**/*.test.*', '**/*.spec.*'],
+        },
+      },
+    }),
     new FriendlyErrorsWebpackPlugin(),
     // eslint-disable-next-line import/namespace
     // new webpack.ProgressPlugin(handleProgress),

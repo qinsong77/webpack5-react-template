@@ -27,5 +27,5 @@ In the browser, MSW works by registering a Service Worker responsible for reques
 
 ## todo 
 
-1. 跑测试axios目前还报错 Network Error, 等msw修复。。与jest
-2. jest 中hack的比较多代码，need remove
+1. [x] 跑测试axios目前还报错 Network Error, 等msw修复。。
+2. [ ] jest 中hack的比较多代码，need remove
