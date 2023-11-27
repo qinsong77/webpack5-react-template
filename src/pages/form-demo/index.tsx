@@ -1,8 +1,6 @@
 // https://epicreact.dev/improve-the-performance-of-your-react-forms/
 import * as React from 'react'
 
-import './styles.css'
-
 declare global {
   interface Window {
     PENALTY: number
@@ -92,12 +90,13 @@ function SlowInput({
         pattern="[a-z]{3,10}"
         required
         aria-describedby={displayErrorMessage ? `${name}-error` : undefined}
+        className="border"
       />
       {displayErrorMessage ? (
         <span
           role="alert"
           id={`${name}-error`}
-          className="error-message"
+          className="ml-2 inline-block text-xs text-red-500"
         >
           {errorMessage}
         </span>
@@ -204,12 +203,13 @@ function FastInput({
         pattern="[a-z]{3,10}"
         required
         aria-describedby={displayErrorMessage ? `${name}-error` : undefined}
+        className="border"
       />
       {displayErrorMessage ? (
         <span
           role="alert"
           id={`${name}-error`}
-          className="error-message"
+          className="ml-2 inline-block text-xs text-red-500"
         >
           {errorMessage}
         </span>
