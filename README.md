@@ -21,7 +21,7 @@
 - [ ] mock serve
   - [msw](https://mswjs.io/docs) for mock server and test, refer: [Stop mocking fetch](https://kentcdodds.com/blog/stop-mocking-fetch)
 - [ ] [Tailwindcss](https://tailwindcss.com/)
-- [ ] [Router](https://reactrouter.com/en/main)
+- [ ] [Router](https://reactrouter.com/en/main) => [TanStack Router](https://tanstack.com/router/v1)
 - [ ] Zustand
 - [ ] Generate Api
 - [ ] Axios + Ahook useRequest

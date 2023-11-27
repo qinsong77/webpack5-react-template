@@ -21,12 +21,25 @@ code {
     monospace;
 }
 
-
 @layer components {
   .btn-blue {
     @apply rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700;
   }
+  .link-list {
+    @apply flex gap-4;
+  }
   .link {
-    @apply m-1 text-blue-600 hover:text-blue-900 underline;
+    @apply inline-block text-blue-500 transition-colors hover:text-blue-700;
+    @apply border-b border-transparent pb-1;
+
+    /* 鼠标悬停时显示下划线 */
+    &:hover {
+      @apply border-b-current;
+    }
+
+    /*相邻链接之间添加间距 */
+    & + .link {
+      @apply ml-10;
+    }
   }
 }

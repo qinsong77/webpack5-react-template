@@ -6,7 +6,7 @@ const Header: FC<{ className: string }> = ({ className }) => {
   return (
     <header className={clsx(className, 'flex place-content-between')}>
       <h5 className="red text-xl"> this is header</h5>
-      <ul className="flex">
+      <ul className="link-list">
         <li>
           <Link
             className="link"

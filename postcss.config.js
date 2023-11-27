@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const postcssPresetEnv = require('postcss-preset-env')
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const postcssNormalize = require('postcss-normalize') // 用tailwindcss应该用不上这个了
+// const postcssNormalize = require('postcss-normalize') // 用tailwindcss应该用不上这个了
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const tailwindcss = require('tailwindcss')
@@ -19,6 +19,8 @@ module.exports = {
         stage: 3,
       }),
     ],
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    require('tailwindcss/nesting')(require('postcss-nesting')),
     tailwindcss,
     // 根据 browserslist 自动导入需要的 normalize.css 内容
     // postcssNormalize({ forceImport: true }),
