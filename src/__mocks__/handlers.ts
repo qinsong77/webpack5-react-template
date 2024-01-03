@@ -1,4 +1,4 @@
-import { graphql, http, HttpResponse } from 'msw'
+import { delay, graphql, http, HttpResponse } from 'msw'
 
 export const handlers = [
   http.get('https://api.example.com/user', () => {
@@ -45,10 +45,20 @@ export const handlers = [
     })
   }),
 
+  http.get('/api/customer/getPackageLocation', async ({ params }) => {
+    await delay(5 * 1000)
+    return HttpResponse.json({
+      id: params.id,
+      latitude: 121,
+      longitude: 33,
+    })
+  }),
+
   // mine
   http.get('/api/v3/pet/findByStatus', async ({ params }) => {
     const { status } = params
     console.log('/api/v3/pet/findByStatus:' + status)
+    await delay(2000)
     return HttpResponse.json([
       {
         id: 10,

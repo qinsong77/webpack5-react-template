@@ -4,10 +4,14 @@ const postcssPresetEnv = require('postcss-preset-env')
 // const postcssNormalize = require('postcss-normalize') // 用tailwindcss应该用不上这个了
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const postcssImport = require('postcss-import')
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const tailwindcss = require('tailwindcss')
 
 module.exports = {
   plugins: [
+    postcssImport,
     [
       // // 参考 browserslist 的浏览器兼容表自动对那些还不支持的现代 CSS 特性做转换
       postcssPresetEnv({

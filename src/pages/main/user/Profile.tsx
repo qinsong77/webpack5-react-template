@@ -1,15 +1,16 @@
-import { useRequest } from 'ahooks'
+import { useQuery } from '@tanstack/react-query'
 
-import { findPetsByStatus } from '@/services/apis/PetstoreService'
+import { findPetsByStatus } from '@/service/apis/PetstoreService'
 
 export const Profile = () => {
-  const { data, loading, error } = useRequest(() =>
-    findPetsByStatus({ status: 'sold' })
-  )
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['/api/v3/pet/findByStatus'],
+    queryFn: () => findPetsByStatus({ status: 'sold' }),
+  })
   return (
     <div>
       this is Profile
-      {loading ? (
+      {isLoading ? (
         <p>loading</p>
       ) : error ? (
         <p>error</p>

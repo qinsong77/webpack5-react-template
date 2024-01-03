@@ -27,10 +27,11 @@
       // 别名 tsconfig-paths-webpack-plugin 自动注入到webpack resolve
       "@/assets/*": ["assets/*"],
       "@/image/*": ["assets/images/*"],
-      "@/services/*": ["services/*"],
+      "@/service/*": ["service/*"],
       "@/components/*": ["components/*"],
       "@/hooks/*": ["hooks/*"],
-      "@/store/*": ["store/*"]
+      "@/store/*": ["store/*"],
+      "@/feature/*": ["feature/*"]
     }
   },
   "include": ["src"],

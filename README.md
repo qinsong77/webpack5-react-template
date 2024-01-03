@@ -24,7 +24,7 @@
 - [ ] [Router](https://reactrouter.com/en/main) => [TanStack Router](https://tanstack.com/router/v1)
 - [ ] Zustand
 - [ ] Generate Api
-- [ ] Axios + Ahook useRequest
+- [ ] Axios + useQuery
 
 > Issues
 - [ ] `fork-ts-checker-webpack-plugin`会使用`tsconfig.json`的include的字段里去check文件，导致webpack dev时测试文件类型有问题也会报错，暂时是exclude排除了
@@ -33,7 +33,7 @@
 - [ ] msw结合jest 中hack的比较多代码，need remove
 
 
-- [React 开发思想纲领](https://juejin.cn/post/7076244324614144014#heading-9)
+- [React 开发思想纲领](https://juejin.cn/post/7076244324614144014)
 - [react 项目架构指南：Bulletproof React](https://github.com/alan2207/bulletproof-react)
 
 
@@ -87,7 +87,7 @@ pnpm exec tsc --init
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "target": "es6",  /* 指定 ECMAScript 目标版本：'ES3'、'ES5'（默认）、'ES2015'、'ES2016'、'ES2017'、'ES2018'、'ES2019'、'ES2020' 或 'ESNEXT'。 */
-    "module": "esnext", /*TS需要引用的库，即声明文件，es5 默认引用dom、es5、scripthost,如需要使用es的高级版本特性，通常都需要配置，如es8的数组新特性需要引入"ES2019.Array" */
+    "module": "esnext", /*TS需要引用的库，即声明文件，es5 默认引用dom、es5、script host,如需要使用es的高级版本特性，通常都需要配置，如es8的数组新特性需要引入"ES2019.Array" */
     "lib": [
       "dom",
       "dom.iterable",
@@ -221,7 +221,7 @@ TS1259: Module 'xxxx' has no default export.
 
 ### esModuleInterop 和 allowSyntheticDefaultImports
 
-上面的问题延伸一下，其实不仅仅是引入react，在esm中引入任何commonjs的模块在ts默认编译时都会有这样的问题，ts提供了`esModuleInterop` 和 `allowSyntheticDefaultImports` 这两个配置来影响ts默认的解析。
+上面的问题延伸一下，其实不仅仅是引入react，在`esm`中引入任何`commonjs`的模块在ts默认编译时都会有这样的问题，ts提供了`esModuleInterop` 和 `allowSyntheticDefaultImports` 这两个配置来影响ts默认的解析。
 
 `allowSyntheticDefaultImports`是一个类型检查的配置，它会把`import`没有`exports.default`的报错忽略，如果你的`target`是`es6`加上这个配置就够了，但如果你的目标代码是`es5`仅仅加上这个还不行，还需要使用`esModuleInterop`，因为它才会改变tsc的编译产物：
 
@@ -305,7 +305,7 @@ pnpm add webpack webpack-cli webpack-dev-server webpack-merge -D
 pnpm add ts-node @types/node @types/webpack -D
 ```
 
-值得注意的是你需要确保 `tsconfig.json` 的 `compilerOption`s 中 `module` 选项的值为 `commonjs`,否则 webpack 的运行会失败报错，因为 `ts-node` 不支持 `commonjs` 以外的其他模块规范。
+值得注意的是你需要确保 `tsconfig.json` 的 `compilerOptions` 中 `module` 选项的值为 `commonjs`,否则 webpack 的运行会失败报错，因为 `ts-node` 不支持 `commonjs` 以外的其他模块规范。
 
 官网有三种设置方式，这里选择第三种
 

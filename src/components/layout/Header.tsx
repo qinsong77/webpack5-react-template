@@ -42,6 +42,22 @@ const Header: FC<{ className: string }> = ({ className }) => {
         <li>
           <Link
             className="link"
+            to="/loader-location/290"
+          >
+            router loader
+          </Link>
+        </li>
+        <li>
+          <Link
+            className="link"
+            to="/loader-defer-location/290"
+          >
+            router defer
+          </Link>
+        </li>
+        <li>
+          <Link
+            className="link"
             to="/"
           >
             home

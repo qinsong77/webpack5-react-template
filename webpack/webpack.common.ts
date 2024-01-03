@@ -18,6 +18,7 @@ const config: Configuration = {
   mode: 'production',
   cache: {
     type: 'filesystem', // 使用文件缓存
+    name: `${process.env.NODE_ENV || 'development'}-cache`,
   },
   entry: path.resolve(__dirname, '../src/index'),
   output: {

@@ -1,7 +1,8 @@
 import { FC } from 'react'
 import { Outlet } from 'react-router-dom'
 
-import Header from '@/components/Layout/Header'
+import { Footer } from './Footer'
+import Header from './Header'
 
 export const Layout: FC = () => {
   return (
@@ -11,9 +12,7 @@ export const Layout: FC = () => {
       <main className="flex-grow p-2">
         <Outlet />
       </main>
-      <footer className="bg-slate-100 p-2 p-4 text-center text-xs text-slate-700">
-        this is footer
-      </footer>
+      <Footer />
     </div>
   )
 }

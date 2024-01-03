@@ -1,12 +1,20 @@
 import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom'
 
-import { Layout } from '@/components/Layout'
+import { Layout } from '@/components/layout'
 import { NotFound } from '@/components/NotFound'
 
 import { FormDemo } from '../pages/form-demo'
 import { Home } from '../pages/home'
 import { Introduce } from '../pages/introduce'
 import { Dashboard, Discussion, List, Main, Post, Profile } from '../pages/main'
+import {
+  loader as PackageRouteDeferLoader,
+  PackageLoaderDeferRoute,
+} from '../pages/router-loader/PackageLoaderDeferRoute'
+import {
+  loader as PackageRouteLoader,
+  PackageLoaderRoute,
+} from '../pages/router-loader/PackageLoaderRoute'
 
 const authRouters: RouteObject[] = [
   // { path: '/discussienes/*', element: <DiscussionsRoutes /> },
@@ -35,6 +43,16 @@ const mainRouters: RouteObject[] = [
   {
     path: '/form-demo',
     element: <FormDemo />,
+  },
+  {
+    path: '/loader-location/:packageId',
+    element: <PackageLoaderRoute />,
+    loader: PackageRouteLoader,
+  },
+  {
+    path: '/loader-defer-location/:packageId',
+    element: <PackageLoaderDeferRoute />,
+    loader: PackageRouteDeferLoader,
   },
 ]
 

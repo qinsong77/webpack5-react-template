@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom/client'
 
 import App from './App'
 
-import './index.css'
+import './style/index.css'
 
 async function prepareApp() {
   if (
@@ -16,6 +16,7 @@ async function prepareApp() {
 
   return Promise.resolve()
 }
+
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 prepareApp().then(() => {
   root.render(
