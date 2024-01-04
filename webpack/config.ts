@@ -15,7 +15,7 @@ loadConfig({
   path: ENV_CONFIG_PATH,
 })
 
-export const PUBLIC_PATH = '/'
+export const PUBLIC_PATH = process.env.PUBLIC_PATH ?? '/'
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
