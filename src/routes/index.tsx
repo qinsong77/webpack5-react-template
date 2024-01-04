@@ -58,13 +58,18 @@ const mainRouters: RouteObject[] = [
   { path: 'payment', element: <Payment amount={19.9} /> },
 ]
 
-export const routers = createBrowserRouter([
-  // this is just for warp all page with header and footer: https://stackoverflow.com/questions/70833727/using-react-router-v6-i-need-a-navbar-to-permanently-be-there-but-cant-display
+export const routers = createBrowserRouter(
+  [
+    // this is just for warp all page with header and footer: https://stackoverflow.com/questions/70833727/using-react-router-v6-i-need-a-navbar-to-permanently-be-there-but-cant-display
+    {
+      path: '/',
+      element: <Layout />,
+      // 404
+      errorElement: <NotFound />,
+      children: mainRouters,
+    },
+  ],
   {
-    path: '/',
-    element: <Layout />,
-    // 404
-    errorElement: <NotFound />,
-    children: mainRouters,
-  },
-])
+    basename: process.env.PUBLIC_PATH,
+  }
+)

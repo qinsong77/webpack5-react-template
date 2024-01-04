@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "husky install & npx only-allow pnpm",
     "commit": "git-cz",
-    "dev": "cross-env NODE_ENV=development TS_NODE_PROJECT=\\\"tsconfig.webpack.json\\\" webpack serve --config webpack/webpack.development.ts",
+    "dev": "cross-env NODE_ENV=development DEBUG=true TS_NODE_PROJECT=\\\"tsconfig.webpack.json\\\" webpack serve --config webpack/webpack.development.ts",
     "build": "cross-env NODE_ENV=production TS_NODE_PROJECT=\\\"tsconfig.webpack.json\\\" webpack --config webpack/webpack.production.ts",
     "build:analyzer": "cross-env NODE_ENV=production analyzer=true TS_NODE_PROJECT=\\\"tsconfig.webpack.json\\\" webpack --config webpack/webpack.production.ts",
     "preview": "serve dist -p 3001",

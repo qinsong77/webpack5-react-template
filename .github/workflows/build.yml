@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      PUBLIC_PATH: webpack5-react-template
+      PUBLIC_PATH: /webpack5-react-template/
 
     steps:
       - name: Checkout

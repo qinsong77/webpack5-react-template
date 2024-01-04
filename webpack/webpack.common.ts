@@ -5,9 +5,10 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import * as path from 'path'
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin'
 import type { Configuration } from 'webpack'
+import { DefinePlugin } from 'webpack'
 import WebpackBar from 'webpackbar'
 
-import { IS_DEV, PUBLIC_PATH } from './config'
+import { envKeys, IS_DEV, PUBLIC_PATH } from './config'
 // import { handleProgress } from './utils/handleProgress'
 
 // fix error: tsconfig-paths-webpack-plugin: Found no baseUrl in tsconfig.json, not applying tsconfig-paths-webpack-plugin
@@ -130,6 +131,14 @@ const config: Configuration = {
       // basic: false, // 默认true，启用一个简单的日志报告器
       // profile: false, // 默认false，启用探查器。
     }),
+    new DefinePlugin(
+      envKeys.reduce((prev, envKey) => {
+        prev[`process.env.${envKey}`] = JSON.stringify(
+          process.env[envKey] ?? ''
+        )
+        return prev
+      }, {})
+    ),
   ],
 }
 
