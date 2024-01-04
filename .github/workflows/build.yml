@@ -12,6 +12,7 @@ jobs:
 
     env:
       PUBLIC_PATH: /webpack5-react-template/
+      MSW_ENABLE: true
 
     steps:
       - name: Checkout

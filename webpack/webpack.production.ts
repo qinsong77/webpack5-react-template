@@ -4,6 +4,7 @@ import TerserPlugin from 'terser-webpack-plugin'
 import type { Configuration } from 'webpack'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import merge from 'webpack-merge'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 
 // import InlineRuntimeChunkPlugin from './plugins/inline-runtime-chunk-html'
 import commonConfig from './webpack.common'
@@ -40,6 +41,19 @@ const config: Configuration = {
     },
   },
   plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'public',
+          to: '',
+          globOptions: {
+            ignore: process.env.MSW_ENABLE
+              ? ['**/index.html']
+              : ['**/mockServiceWorker.js', '**/index.html'],
+          },
+        },
+      ],
+    }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // all options are optional

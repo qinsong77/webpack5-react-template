@@ -6,10 +6,7 @@ import App from './App'
 import './style/index.css'
 
 async function prepareApp() {
-  if (
-    process.env.NODE_ENV === 'development' ||
-    process.env.NODE_ENV === 'test'
-  ) {
+  if (process.env.MSW_ENABLE) {
     const { worker } = await import('./__mocks__/browser')
     return worker.start()
   }

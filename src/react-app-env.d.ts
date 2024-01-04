@@ -8,6 +8,7 @@ declare namespace NodeJS {
     readonly NODE_ENV: 'development' | 'production' | 'test'
     readonly PUBLIC_PATH: string
     readonly DEBUG: boolean
+    readonly MSW_ENABLE: boolean
   }
 }
 
