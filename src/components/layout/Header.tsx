@@ -58,6 +58,14 @@ const Header: FC<{ className: string }> = ({ className }) => {
         <li>
           <Link
             className="link"
+            to="/payment"
+          >
+            payment
+          </Link>
+        </li>
+        <li>
+          <Link
+            className="link"
             to="/"
           >
             home

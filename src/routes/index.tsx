@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom'
 
 import { Layout } from '@/components/layout'
 import { NotFound } from '@/components/NotFound'
+import { Payment } from '@/feature/payment/components/Payment'
 
 import { FormDemo } from '../pages/form-demo'
 import { Home } from '../pages/home'
@@ -54,6 +55,7 @@ const mainRouters: RouteObject[] = [
     element: <PackageLoaderDeferRoute />,
     loader: PackageRouteDeferLoader,
   },
+  { path: 'payment', element: <Payment amount={19.9} /> },
 ]
 
 export const routers = createBrowserRouter([
