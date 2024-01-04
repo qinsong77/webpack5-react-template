@@ -11,13 +11,13 @@ export const IS_DEV = NODE_ENV === 'development'
 const ENV_CONFIG_PATH = path.resolve(ROOT_PATH, 'env', `${NODE_ENV}.env`)
 
 // node 读取env 配置
-const envs = loadConfig({
+loadConfig({
   path: ENV_CONFIG_PATH,
   // todo fix type
   debug: process.env.DEBUG as unknown as boolean,
 })
 
-export const envKeys = Object.keys(envs.parsed)
+export const envKeys = ['PUBLIC_PATH'] // todo: coupled with env
 
 export const PUBLIC_PATH = process.env.PUBLIC_PATH ?? '/'
 
