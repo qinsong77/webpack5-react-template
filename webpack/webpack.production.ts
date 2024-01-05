@@ -1,10 +1,10 @@
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
 import type { Configuration } from 'webpack'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import merge from 'webpack-merge'
-import CopyWebpackPlugin from 'copy-webpack-plugin'
 
 // import InlineRuntimeChunkPlugin from './plugins/inline-runtime-chunk-html'
 import commonConfig from './webpack.common'
