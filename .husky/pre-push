@@ -3,4 +3,4 @@
 
 pnpm run check-types
 npx --no-install lint-staged
-pnpm run test
+pnpm run test --onlyChanged

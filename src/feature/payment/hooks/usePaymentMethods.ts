@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 import { PaymentMethod } from '../models/PaymentMethod'
 import { RemotePaymentMethod } from '../types'
@@ -19,11 +20,13 @@ const convertPaymentMethods = (methods: RemotePaymentMethod[]) => {
 }
 
 const fetchPaymentMethods = async () => {
-  const response = await fetch(
-    'https://5a2f495fa871f00012678d70.mockapi.io/api/payment-methods?countryCode=AU'
-  )
-  const methods: RemotePaymentMethod[] = await response.json()
+  const methods: RemotePaymentMethod[] = (
+    await axios.get(
+      'https://5a2f495fa871f00012678d70.mockapi.io/api/payment-methods?countryCode=AU'
+    )
+  )?.data
 
+  console.log(methods)
   return convertPaymentMethods(methods)
 }
 

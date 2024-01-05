@@ -79,13 +79,13 @@ describe('Payment', () => {
     })
 
     it('shows all available payment methods', async () => {
-      const methods = [{ name: 'apple' }, { name: 'google' }]
+      // const methods = [{ name: 'apple' }, { name: 'google' }]
 
-      global.fetch = jest.fn().mockImplementation(() =>
-        Promise.resolve({
-          json: () => Promise.resolve(methods),
-        })
-      )
+      // global.fetch = jest.fn().mockImplementation(() =>
+      //   Promise.resolve({
+      //     json: () => Promise.resolve(methods),
+      //   })
+      // )
 
       render(<Payment amount={19.9} />)
 

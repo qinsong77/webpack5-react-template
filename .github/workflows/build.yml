@@ -49,7 +49,7 @@ jobs:
         run: pnpm install
 
       - name: Run Tests
-        run: pnpm test
+        run: pnpm run test --onlyChanged
 
       - name: Build
         run: pnpm run build

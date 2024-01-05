@@ -78,4 +78,24 @@ export const handlers = [
       },
     ])
   }),
+  http.get(
+    'https://5a2f495fa871f00012678d70.mockapi.io/api/payment-methods',
+    async ({ params }) => {
+      // Await a random realistic server response time.
+      console.log(params?.countryCode)
+      await delay()
+      return HttpResponse.json([
+        {
+          name: 'apple',
+          countryCode: 'AU',
+          id: '1',
+        },
+        {
+          name: 'google',
+          countryCode: 'AU',
+          id: '2',
+        },
+      ])
+    }
+  ),
 ]
