@@ -8,7 +8,11 @@ import './style/index.css'
 async function prepareApp() {
   if (process.env.MSW_ENABLE) {
     const { worker } = await import('./__mocks__/browser')
-    return worker.start()
+    return worker.start({
+      serviceWorker: {
+        url: `${process.env.PUBLIC_PATH ?? '/'}mockServiceWorker.js`,
+      },
+    })
   }
 
   return Promise.resolve()
