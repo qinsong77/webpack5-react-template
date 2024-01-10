@@ -14,6 +14,8 @@ module.exports = {
   plugins: [
     // https://github.com/lydell/eslint-plugin-simple-import-sort/#example-configuration
     'simple-import-sort',
+    // https://www.npmjs.com/package/eslint-plugin-react-refresh
+    'react-refresh',
   ],
   extends: [
     // ESLint
@@ -60,6 +62,8 @@ module.exports = {
     'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',
+
+    'react-refresh/only-export-components': 'warn',
   },
   overrides: [
     // override "simple-import-sort" config form https://dev.to/julioxavierr/sorting-your-imports-with-eslint-3ped
