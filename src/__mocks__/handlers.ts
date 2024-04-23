@@ -24,7 +24,7 @@ export const handlers = [
       },
     })
   }),
-  http.get('/move/list', () => {
+  http.get('/movie/list', () => {
     return HttpResponse.json({
       data: {
         movies: [
@@ -46,11 +46,11 @@ export const handlers = [
   }),
 
   http.get('/api/customer/getPackageLocation', async ({ params }) => {
-    await delay(5 * 1000)
+    await delay(3 * 1000)
     return HttpResponse.json({
       id: params.id,
-      latitude: 121,
-      longitude: 33,
+      latitude: Math.ceil(Math.random() * 100 + Math.random() * 80),
+      longitude: Math.ceil(Math.random() * 100 + Math.random() * 80),
     })
   }),
 
@@ -82,7 +82,7 @@ export const handlers = [
     'https://5a2f495fa871f00012678d70.mockapi.io/api/payment-methods',
     async ({ params }) => {
       // Await a random realistic server response time.
-      console.log(params?.countryCode)
+      console.log(params)
       await delay()
       return HttpResponse.json([
         {

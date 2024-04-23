@@ -1,5 +1,5 @@
 {
-  "outputFolder": "./src/services/apis",
+  "outputFolder": "./src/service/apis",
   "requestCreateLib": "../axios",
   "requestCreateMethod": "createRequest",
   "timeout": 180000,

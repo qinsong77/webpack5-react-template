@@ -2,9 +2,13 @@
   /* Visit https://aka.ms/tsconfig to read more about this file */
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "target": "es6" /* 指定 ECMAScript 目标版本：'ES3'、'ES5'（默认）、'ES2015'、'ES2016'、'ES2017'、'ES2018'、'ES2019'、'ES2020' 或 'ESNEXT'。 */,
-    "module": "esnext" /*TS需要引用的库，即声明文件，es5 默认引用dom、es5、scripthost,如需要使用es的高级版本特性，通常都需要配置，如es8的数组新特性需要引入"ES2019.Array" */,
-    "lib": ["dom", "dom.iterable", "esnext"] /* 指定要包含在编译中的库文件。 */,
+    "target": "es5" /* 指定要编译到的目标ECMAScript版本：'ES3'、'ES5'（默认）、'ES2015'、'ES2016'、'ES2017'、'ES2018'、'ES2019'、'ES2020' 或 'ESNEXT'。 */,
+    "module": "esnext" /* 指定要使用的模块系统 */,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ] /* 编译过程中需要引入的库文件的列表。 */,
     "allowJs": false /* 不允许编译器编译JS，JSX文件 */,
     "noEmit": true /* 不输出文件,即编译后不会生成任何js文件 */,
 
@@ -14,13 +18,13 @@
     "allowSyntheticDefaultImports": true /* 允许从没有默认导出的模块中默认导入。 这不会影响代码发出，只是类型检查。 */,
     "esModuleInterop": true /* 允许export=导出，由import from 导入 */,
 
-    "noFallthroughCasesInSwitch": true /* 在 switch 语句中报告失败情况的错误。 */,
+    "noFallthroughCasesInSwitch": true /* 在switch语句中要求处理所有情况，避免出现漏写break导致的错误。 */,
 
-    "resolveJsonModule": true /* 可以导入json文件 */,
+    "resolveJsonModule": true /* 允许导入JSON文件作为模块。 */,
     "isolatedModules": false /* 将每个文件转换为一个单独的模块（类似于 'ts.transpileModule'）。 */,
-    "jsx": "react-jsx" /* 指定 JSX 格式：'preserve'、'react-native' 或 'react'。 */,
+    "jsx": "react-jsx",
 
-    "skipLibCheck": true /* 跳过声明文件的类型检查。 */,
+    "skipLibCheck": true /* 跳过对导入的库文件进行类型检查。 */,
     "forceConsistentCasingInFileNames": true /* 禁止对同一文件的大小写不一致地引用。 */,
     "baseUrl": "./src",
     "paths": {

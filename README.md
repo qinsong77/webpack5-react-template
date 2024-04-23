@@ -10,7 +10,7 @@
 - [x] Test
   - [x] Jest
   - [x] RTL
-- [x] Code style/Lint
+- [x] Code style/lint
   - [x] husky
   - [x] eslint
   - [x] prettier
@@ -86,13 +86,13 @@ pnpm exec tsc --init
   /* Visit https://aka.ms/tsconfig to read more about this file */
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "target": "es6",  /* 指定 ECMAScript 目标版本：'ES3'、'ES5'（默认）、'ES2015'、'ES2016'、'ES2017'、'ES2018'、'ES2019'、'ES2020' 或 'ESNEXT'。 */
-    "module": "esnext", /*TS需要引用的库，即声明文件，es5 默认引用dom、es5、script host,如需要使用es的高级版本特性，通常都需要配置，如es8的数组新特性需要引入"ES2019.Array" */
+    "target": "es5",  /* 指定要编译到的目标ECMAScript版本：'ES3'、'ES5'（默认）、'ES2015'、'ES2016'、'ES2017'、'ES2018'、'ES2019'、'ES2020' 或 'ESNEXT'。 */
+    "module": "esnext", /* 指定要使用的模块系统 */
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
-    ],  /* 指定要包含在编译中的库文件。 */
+    ],  /* 编译过程中需要引入的库文件的列表。 */
     "allowJs": false, /* 不允许编译器编译JS，JSX文件 */
     "noEmit": true, /* 不输出文件,即编译后不会生成任何js文件 */
 
@@ -102,13 +102,13 @@ pnpm exec tsc --init
     "allowSyntheticDefaultImports": true, /* 允许从没有默认导出的模块中默认导入。 这不会影响代码发出，只是类型检查。 */
     "esModuleInterop": true, /* 允许export=导出，由import from 导入 */
 
-    "noFallthroughCasesInSwitch": true,  /* 在 switch 语句中报告失败情况的错误。 */
+    "noFallthroughCasesInSwitch": true,  /* 在switch语句中要求处理所有情况，避免出现漏写break导致的错误。 */
 
-    "resolveJsonModule": true, /* 可以导入json文件 */
+    "resolveJsonModule": true, /* 允许导入JSON文件作为模块。 */
     "isolatedModules": true, /* 将每个文件转换为一个单独的模块（类似于 'ts.transpileModule'）。 */
     "jsx": "react-jsx",
 
-    "skipLibCheck": true, /* 跳过声明文件的类型检查。 */
+    "skipLibCheck": true, /* 跳过对导入的库文件进行类型检查。 */
     "forceConsistentCasingInFileNames": true, /* 禁止对同一文件的大小写不一致地引用。 */
   },
   "include": [
@@ -259,7 +259,7 @@ console.log(react_1.default.useEffect);
 react-ts-template
 ├── package.json
 ├── public # 存放html模板
-├── script # webpack配置
+├── webpack # webpack配置
 │ ├── config # 配置文件
 │ ├── utils # 
 │ ├── webpack.common.ts
@@ -299,7 +299,7 @@ pnpm add webpack webpack-cli webpack-dev-server webpack-merge -D
 
 这里webpack的配置文件也使用typescript，需要额外配置，参考官网[Configuration Languages](https://webpack.docschina.org/configuration/configuration-languages/)
 
-要使用 Typescript 来编写 webpack 配置，你需要先安装必要的依赖，比如 Typescript 以及其相应的类型声明，类型声明可以从 `DefinitelyTyped` 项目中获取，依赖安装如下所示：
+要使用 Typescript 来编写 webpack 配置，需要先安装必要的依赖，比如 Typescript 以及其相应的类型声明，类型声明可以从 `DefinitelyTyped` 项目中获取，依赖安装如下所示：
 
 ```shell
 pnpm add ts-node @types/node @types/webpack -D
@@ -396,7 +396,7 @@ pnpm add html-webpack-plugin @pmmmwh/react-refresh-webpack-plugin react-refresh 
 
 ### 静态资源
 
-webpack 5 之前，通常使用
+webpack5 之前，通常使用
 
 - raw-loader 将文件导入为字符串
 - url-loader 将文件作为data URL 内联到bundle中
@@ -417,6 +417,13 @@ webpack 5 之前，通常使用
 - tsc: 不好配合`webpack`使用，转换`es5`以后，一些语法特性不能转换。
 - [ts-loader](https://www.npmjs.com/package/ts-loader): 可以做类型检查，可搭配`tsconfig.json`使用。
 - `babel-loader` + `@babel/preset-typescript`, 插件丰富，提供缓存机制，后续兼容扩展更强，但做不了类型检查(可以使用[Fork TS Checker Webpack Plugin](https://www.npmjs.com/package/fork-ts-checker-webpack-plugin)。（推荐）
+
+`tsc` 生成的代码没有做 `polyfill` 的处理，需要全量引入 `core-js`，而 `babel` 则可以用 `@babel/preset-env` 根据 `targets` 的配置来按需引入 `core-js` 的部分模块，所以生成的代码体积更小。
+babel 缺点就是有一些 ts 语法并不支持：
+
+不支持 const enum（会作为 enum 处理），不支持 namespace 的跨文件合并，导出非 const 的值，不支持过时的 export = import = 的模块语法。
+
+但关系不大。
 
 这里选择第三种，安装依赖：
 ```shell
@@ -541,7 +548,7 @@ postcss其实就是类似css中的babel的作用，
 pnpm add postcss postcss-loader postcss-preset-env postcss-flexbugs-fixes postcss-normalize -D
 ```
 
-[X] Maybe [unocss](https://unocss.dev/guide/) is better?
+- [ ] Maybe [unocss](https://unocss.dev/guide/) is better?
 
 [transform-to-unocss](https://github.com/Simon-He95/transformToUnocss/blob/main/README_zh.md)
 
