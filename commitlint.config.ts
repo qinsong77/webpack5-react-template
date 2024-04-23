@@ -1,6 +1,11 @@
-module.exports = {
+import type { UserConfig } from '@commitlint/types'
+
+const Configuration: UserConfig = {
   extends: ['@commitlint/config-conventional'],
 }
+
+export default Configuration
+
 // git commit 规范
 // <类型>[可选的作用域]: <描述>
 // git commit -m 'feat: 增加 xxx 功能'

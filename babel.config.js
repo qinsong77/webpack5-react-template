@@ -1,5 +1,6 @@
 const IS_DEV = process.env.NODE_ENV === 'development'
 
+/** @type {import('@babel/core').ConfigFunction} */
 module.exports = {
   presets: [
     [

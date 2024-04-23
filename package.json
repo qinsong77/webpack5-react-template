@@ -57,6 +57,7 @@
     "@babel/preset-typescript": "^7.23.2",
     "@commitlint/cli": "^17.5.0",
     "@commitlint/config-conventional": "^17.4.4",
+    "@commitlint/types": "^19.0.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
     "@soda/friendly-errors-webpack-plugin": "^1.8.1",
     "@tanstack/react-query-devtools": "^5.17.0",

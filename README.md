@@ -726,15 +726,19 @@ pnpm dlx husky add .husky/pre-commit "npx --no-install lint-staged"
 
 
 ```shell
-pnpm add -D @commitlint/config-conventional @commitlint/cli 
+pnpm add -D @commitlint/config-conventional @commitlint/cli @commitlint/types 
 ```
 
-在项目根目录下创建`commitlint.config.js`
+在项目根目录下创建`commitlint.config.ts`
 
-```js
-module.exports = {
+```ts
+import type { UserConfig } from '@commitlint/types'
+
+const Configuration: UserConfig = {
   extends: ['@commitlint/config-conventional'],
-};
+}
+
+export default Configuration
 ```
 
 ### 使用commitizen规范commit提交格式
