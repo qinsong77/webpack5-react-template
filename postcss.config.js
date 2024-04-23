@@ -23,8 +23,8 @@ module.exports = {
         stage: 3,
       }),
     ],
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    require('tailwindcss/nesting')(require('postcss-nesting')),
+    // https://tailwindcss.com/docs/using-with-preprocessors#nesting
+    'tailwindcss/nesting',
     tailwindcss,
     // 根据 browserslist 自动导入需要的 normalize.css 内容
     // postcssNormalize({ forceImport: true }),

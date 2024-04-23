@@ -31,9 +31,6 @@ module.exports = {
     'plugin:react-hooks/recommended',
     // Static AST checker for accessibility rules on JSX elements.
     'plugin:jsx-a11y/recommended',
-    // test
-    'plugin:testing-library/react',
-    'plugin:jest-dom/recommended',
     // Prettier
     'plugin:prettier/recommended',
   ],
@@ -66,6 +63,16 @@ module.exports = {
     'react-refresh/only-export-components': 'warn',
   },
   overrides: [
+    {
+      // Test files only
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      extends: [
+        'plugin:jest/recommended',
+        'plugin:jest-dom/recommended',
+        'plugin:testing-library/react',
+      ],
+      rules: { 'jest/prefer-expect-assertions': 'off' },
+    },
     // override "simple-import-sort" config form https://dev.to/julioxavierr/sorting-your-imports-with-eslint-3ped
     {
       files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
