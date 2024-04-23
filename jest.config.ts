@@ -18,6 +18,7 @@ export default {
   },
   // 是否显示覆盖率报告
   collectCoverage: true,
+  collectCoverageFrom: ['src/**/*.[jt]s?(x)', '!src/service/apis/*.ts'],
   // msw - https://github.com/mswjs/examples/blob/main/examples/with-jest/jest.config.ts#L20
   testEnvironmentOptions: {
     /**
