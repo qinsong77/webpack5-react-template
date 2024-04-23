@@ -21,12 +21,11 @@ export const envKeys = ['NODE_ENV', 'PUBLIC_PATH', 'MSW_ENABLE'] // todo: couple
 
 export const PUBLIC_PATH = process.env.PUBLIC_PATH ?? '/'
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-export const DEV_PROXY: Configuration['devServer']['proxy'] = {
-  '/api': {
+export const DEV_PROXY: Configuration['devServer']['proxy'] = [
+  {
+    context: ['/api'],
     target: 'https://petstore3.swagger.io',
     changeOrigin: true,
     // pathRewrite: {'^/api' : ''}
   },
-}
+]
