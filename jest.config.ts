@@ -2,7 +2,9 @@
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
  */
-export default {
+import type { Config } from 'jest'
+
+const config: Config = {
   rootDir: __dirname,
   testEnvironment: 'jsdom',
   setupFiles: ['<rootDir>/jest/jest.polyfills.ts'],
@@ -33,6 +35,7 @@ export default {
     customExportConditions: [''],
   },
 }
+export default config
 // export default {
 //   // All imported modules in your tests should be mocked automatically
 //   // automock: false,
