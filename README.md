@@ -33,7 +33,7 @@
 - [ ] msw结合jest 中hack的比较多代码，need remove
 
 
-- [React 开发思想纲领](https://juejin.cn/post/7076244324614144014)
+- [React 开发思想纲领](https://github.com/mithi/react-philosophies) [翻译](https://juejin.cn/post/7076244324614144014)
 - [react 项目架构指南：Bulletproof React](https://github.com/alan2207/bulletproof-react)
 
 
@@ -217,7 +217,7 @@ console.log(constant_1.default);
 TS1259: Module 'xxxx' has no default export.
 ```
 
-由于没有了 `default` 属性，所以上面编译后的代码` console.log(constant)` 输出的是 undefined，ts 会提示有错误。
+由于没有了 `default` 属性，所以上面编译后的代码` console.log(constant)` 输出的是 `undefined ，ts 会提示有错误。
 
 ### esModuleInterop 和 allowSyntheticDefaultImports
 
@@ -267,11 +267,9 @@ react-ts-template
 │ ├── webpack.production.ts
 ├── README.md
 ├── src
-│ ├── assets # 存放会被 Webpack 处理的静态资源文件：一般是自己写的 js、css 或者图片等静态资源
+│ ├── assets # 存放会被 Webpack 处理的静态资源文件：一般是图片等静态资源
 │ │ ├── fonts # iconfont 目录
 │ │ ├── images # 图片资源目录
-│ │ ├── css # 全局样式目录
-│ │ └── js # 全局js
 │ ├── common # 存放项目通用文件
 │ ├── components # 项目中通用的组件目录
 │ ├── feature # 项目中通用的业务组件目录
@@ -283,12 +281,12 @@ react-ts-template
 │ ├── routes # 路由目录
 │ ├── services # 和后端相关的文件目录
 │ ├── store # redux 仓库
+│ ├── style  global style文件夹
 │ ├── utils # 全局通用工具函数目录
 │ ├── App.tsx # App全局
 │ ├── index.tsx # 项目入口文件
-│ ├── index.scss # 项目入口引入的scss
 └── tsconfig.json # TS 配置文件
-└── tsconfig.webpack.json # 给ts-node指定tsconfig-paths时使用
+└── tsconfig.webpack.json # 给ts-node指定webpack的tsconfig-paths时使用
 ```
 
 ## webpack
@@ -297,7 +295,7 @@ react-ts-template
 pnpm add webpack webpack-cli webpack-dev-server webpack-merge -D
 ```
 
-这里webpack的配置文件也使用typescript，需要额外配置，参考官网[Configuration Languages](https://webpack.docschina.org/configuration/configuration-languages/)
+这里`webpack的`配置文件也使用`typescript`，需要额外配置，参考官网[Configuration Languages](https://webpack.docschina.org/configuration/configuration-languages/)
 
 要使用 Typescript 来编写 webpack 配置，需要先安装必要的依赖，比如 Typescript 以及其相应的类型声明，类型声明可以从 `DefinitelyTyped` 项目中获取，依赖安装如下所示：
 
@@ -340,7 +338,7 @@ package.json
 ### 安装相关插件
 
 - html-webpack-plugin: 在webpack构建后生成html文件，同时把构建好入口js等文件引入到生成的html文件中。
-- mini-css-extract-plugin：抽取csc为单独的css文件.
+- mini-css-extract-plugin：抽取css为单独的css文件.
 - css-minimizer-webpack-plugin： 使用 [cssnano](https://cssnano.co/) 优化和压缩 CSS.
 - style-loader: 开发环境选择下使用`style-loader`, 它可以使用多个标签将 CSS 插入到 DOM 中，反应会更快
 - css-loader：css-loader 会对 `@import` 和 `url() `进行处理，就像 js 解析 `import/require()` 一样。
@@ -358,7 +356,7 @@ pnpm add html-webpack-plugin @pmmmwh/react-refresh-webpack-plugin react-refresh 
 
 ### 添加public文件夹
 
-添加index.html
+添加`index.html`
 
 ```html
 <html lang="en">
@@ -392,8 +390,6 @@ pnpm add html-webpack-plugin @pmmmwh/react-refresh-webpack-plugin react-refresh 
 
 - contenthash：以自身内容为单位，依赖不算。
 
-比如： 假设打包出口有`a.123.js`和`b.123.css`，a文件引入了b文件，修改了b文件的内容，重新打包结果为`a.123.js`和`b.111.css`，a的hash值不受影响
-
 ### 静态资源
 
 webpack5 之前，通常使用
@@ -406,7 +402,7 @@ webpack5 之前，通常使用
 
 - `asset/resource`发送一个单独的文件并导出 URL。之前通过使用`file-loader`实现
 - `asset/inline` 导出一个资源的 data URI。之前通过使用`url-loader`实现。
-- asset/source导出资源的源代码。之前通过使用raw-loader实现。
+- `asset/source`导出资源的源代码。之前通过使用`raw-loader`实现。
 - asset在导出一个 data URI 和发送一个单独的文件之间自动选择。之前通过使用url-loader，并且配置资源体积限制实现。
 
 关于配置`type:'asset'`后，webpack 将按照默认条件，自动地在 `resource` 和 `inline` 之间进行选择：小于 8kb 的文件，将会视为 `inline` 模块类型，否则会被视为 `resource` 模块类型。
@@ -419,9 +415,10 @@ webpack5 之前，通常使用
 - `babel-loader` + `@babel/preset-typescript`, 插件丰富，提供缓存机制，后续兼容扩展更强，但做不了类型检查(可以使用[Fork TS Checker Webpack Plugin](https://www.npmjs.com/package/fork-ts-checker-webpack-plugin)。（推荐）
 
 `tsc` 生成的代码没有做 `polyfill` 的处理，需要全量引入 `core-js`，而 `babel` 则可以用 `@babel/preset-env` 根据 `targets` 的配置来按需引入 `core-js` 的部分模块，所以生成的代码体积更小。
+
 babel 缺点就是有一些 ts 语法并不支持：
 
-不支持 const enum（会作为 enum 处理），不支持 namespace 的跨文件合并，导出非 const 的值，不支持过时的 export = import = 的模块语法。
+比如不支持 `const enum`（会作为 enum 处理），不支持 `namespace` 的跨文件合并，导出非 const 的值，不支持过时的 export = import = 的模块语法。
 
 但关系不大。
 
@@ -440,7 +437,7 @@ pnpm i babel-loader @babel/core @babel/preset-env @babel/preset-react @babel/pre
 - [@babel/preset-env 与@babel/plugin-transform-runtime 使用及场景区别](https://segmentfault.com/a/1190000021188054)
 - [babel-loader](https://webpack.docschina.org/loaders/babel-loader): 使用 Babel 和 webpack 转译 JavaScript 等文件，内部核心转译功能需要`@babel/core`这个核心库。
 - `@babel/core`: `@babel/core`是babel的核心库，所有的核心api都在这个库里，这些api可供`babel-loader`调用
-- [@babel/preset-env](https://babel.docschina.org/docs/en/babel-preset-env/): 这是一个预设的插件集合，包含了一组相关的插件，Babel中是通过各种插件来指导如何进行代码转换。该插件包含所有es6转化为es5的翻译规则。可以做到按需加载我们需要的 `polyfill`
+- [@babel/preset-env](https://babeljs.io/docs/babel-preset-env): 这是一个预设的插件集合，包含了一组相关的插件，Babel中是通过各种插件来指导如何进行代码转换。该插件包含所有es6转化为es5的翻译规则。可以做到按需加载我们需要的 `polyfill`
 
 > @babel/prest-env是babel转译过程中的一些预设，它负责将一些基础的es 6+语法，比如const/let...转译成为浏览器可以识别的低级别兼容性语法。这里需要注意的是`@babel/prest-env`并不会对于一些es6+高版本语法的实现，比如`Promise`等polyfill，你可以将它理解为语法层面的转化不包含高级别模块(polyfill)的实现。
 
@@ -457,11 +454,22 @@ pnpm i babel-loader @babel/core @babel/preset-env @babel/preset-react @babel/pre
 
 `babel.config.js`
 ```js
-const IS_DEV = process.env.NODE_ENV === 'development';
+const IS_DEV = process.env.NODE_ENV === 'development'
 
+/** @type {import('@babel/core').ConfigFunction} */
 module.exports = {
   presets: [
-    '@babel/preset-env',
+    [
+      '@babel/preset-env',
+      {
+        useBuiltIns: 'usage',
+        // https://babeljs.io/docs/babel-preset-env#corejs
+        corejs: {
+          version: 3,
+          proposals: true, // 使用尚在提议阶段特性的 polyfill
+        },
+      },
+    ],
     [
       '@babel/preset-react',
       {
@@ -472,8 +480,7 @@ module.exports = {
     '@babel/preset-typescript',
   ],
   plugins: [].concat(IS_DEV ? ['react-refresh/babel'] : []),
-};
-
+}
 ```
 
 ### browserslist
@@ -532,7 +539,7 @@ postcss其实就是类似css中的babel的作用，
 2. `postcss.config.js`引入`tailwindcss`作为plugin
 3. 修改index.css, 引入`tailwindcss`组件(如官网`@tailwind base;` etc...)
 
-* 巨坑，和css-loader配置`modules`冲突,`modules`有了tailwindcss就不work了
+* 巨坑，和`css-loader`配置`modules`冲突,`modules`有了`tailwindcss`就不work了
 
 ```
 {
@@ -565,7 +572,7 @@ Prettier 主要负责的是**代码风格**。
 
 ### `extends` vs `plugins`
 
- ESLint 中 `extends` 和 `plugins` 这两个配置参数的区别总是会困扰。
+ESLint 中 `extends` 和 `plugins` 这两个配置参数的区别总是会困扰。
 
 **`plugins` 只是开启了这个插件，而 `extends` 则会继承别人写好的一份 `.eslintrc` 的配置，这份配置不仅仅包括了 `rules`, 还有 `parser`，`plugins` 之类的东西。**
 
@@ -654,6 +661,8 @@ pnpm add eslint-plugin-import eslint-import-resolver-typescript -D
 - [`eslint-plugin-simple-import-sort`](https://github.com/lydell/eslint-plugin-simple-import-sort) : Easy autofixable import sorting.
 ### crate-react-app使用的配置
 - [eslint-config-react-app](https://www.npmjs.com/package/eslint-config-react-app)
+
+太麻烦了，还不如用[biomejs](https://biomejs.dev/guides/getting-started/)
 
 ## lint-stage, husky, commitlint
 
@@ -818,8 +827,7 @@ pnpm dlx commitizen init cz-conventional-changelog --save-dev --save-exact
   }
 }
 ```
-接下来就可以使用 `$ pnpm commit` 来代替 `$ git commit` 进行代码提交了，看到下面的效果就表示已经安装成功了。
-
+接下来就可以使用 `$ pnpm commit` 来代替 `$ git commit` 进行代码提交了。
 
 也可以自定义提交规范，`cz-conventional-changelog`就可以移除了
 ```shell
@@ -898,7 +906,7 @@ webpack-bundle-analyzer stats.json
 
 ## [optimization.runtimeChunk](https://webpack.docschina.org/configuration/optimization/#optimizationruntimechunk)
 
-将 optimization.runtimeChunk 设置为 `true` 或 'multiple'，会为每个入口添加一个只含有 runtime 的额外 chunk。此配置的别名如下：
+将 `optimization.runtimeChunk` 设置为 `true` 或 `multiple`，会为每个入口添加一个只含有 `runtime` 的额外 `chunk`。此配置的别名如下：
 
 webpack.config.js
 
@@ -953,7 +961,7 @@ module.exports = {
 
 在 Webpack 中，启动 Tree Shaking 功能必须同时满足三个条件：
 
-- 使用 ESM 规范编写模块代码(`import` and` `export`)
+- 使用 ESM 规范编写模块代码(`import` and `export`)
 - 配置 `optimization.usedExports` 为 true（默认值），启动标记功能
 - 启动代码优化功能，可以通过如下方式实现： 
   - 配置 `mode = production `
