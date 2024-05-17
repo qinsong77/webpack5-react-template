@@ -1,7 +1,7 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
-  ignorePatterns: ['node_modules/*'],
+  ignorePatterns: ['node_modules/*', 'src/components/ui'],
   env: {
     browser: true,
     node: true,

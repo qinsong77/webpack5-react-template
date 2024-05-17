@@ -1,6 +1,9 @@
 // https://epicreact.dev/improve-the-performance-of-your-react-forms/
 import * as React from 'react'
 
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+
 declare global {
   interface Window {
     PENALTY: number
@@ -80,8 +83,8 @@ function SlowInput({
   return (
     <div key={name}>
       <PenaltyComp />
-      <label htmlFor={`${name}-input`}>{name}:</label>{' '}
-      <input
+      <Label htmlFor={`${name}-input`}>{name}:</Label>{' '}
+      <Input
         id={`${name}-input`}
         name={name}
         type="text"
@@ -90,7 +93,6 @@ function SlowInput({
         pattern="[a-z]{3,10}"
         required
         aria-describedby={displayErrorMessage ? `${name}-error` : undefined}
-        className="border"
       />
       {displayErrorMessage ? (
         <span
@@ -193,8 +195,8 @@ function FastInput({
   return (
     <div key={name}>
       <PenaltyComp />
-      <label htmlFor={`${name}-input`}>{name}:</label>{' '}
-      <input
+      <Label htmlFor={`${name}-input`}>{name}:</Label>{' '}
+      <Input
         id={`${name}-input`}
         name={name}
         type="text"
@@ -203,7 +205,6 @@ function FastInput({
         pattern="[a-z]{3,10}"
         required
         aria-describedby={displayErrorMessage ? `${name}-error` : undefined}
-        className="border"
       />
       {displayErrorMessage ? (
         <span
@@ -263,7 +264,7 @@ function FastForm() {
 
 export function FormDemo() {
   return (
-    <div>
+    <div className="w-96">
       <h1>Slow Form</h1>
       <SlowForm />
       <hr />

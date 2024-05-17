@@ -10,7 +10,6 @@ export const IS_DEV = NODE_ENV === 'development'
 
 const ENV_CONFIG_PATH = path.resolve(ROOT_PATH, 'env', `.env.${NODE_ENV}`)
 
-// node 读取env 配置
 loadConfig({
   path: ENV_CONFIG_PATH,
   // todo fix type

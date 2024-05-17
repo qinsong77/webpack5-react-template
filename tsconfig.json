@@ -35,7 +35,8 @@
       "@/components/*": ["components/*"],
       "@/hooks/*": ["hooks/*"],
       "@/store/*": ["store/*"],
-      "@/feature/*": ["feature/*"]
+      "@/feature/*": ["feature/*"],
+      "@/utils": ["utils/index.ts"]
     }
   },
   "include": ["src"],

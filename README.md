@@ -20,7 +20,8 @@
 - [x] postcss
 - [ ] mock serve
   - [msw](https://mswjs.io/docs) for mock server and test, refer: [Stop mocking fetch](https://kentcdodds.com/blog/stop-mocking-fetch)
-- [ ] [Tailwindcss](https://tailwindcss.com/)
+- [x] [Tailwindcss](https://tailwindcss.com/)
+- [x] [ui.shadcn](https://ui.shadcn.com/docs)
 - [ ] [Router](https://reactrouter.com/en/main) => [TanStack Router](https://tanstack.com/router/v1)
 - [ ] Zustand
 - [ ] Generate Api

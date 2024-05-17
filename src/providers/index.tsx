@@ -1,3 +1,3 @@
 // export * from './AppProvider'
 
-export {}
+export * from './ThemeProvider'

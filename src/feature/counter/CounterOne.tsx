@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
 
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+
 export function CounterOne() {
   const [count, setCount] = useState(0)
   const [step, setStep] = useState(1)
@@ -15,13 +18,8 @@ export function CounterOne() {
   return (
     <>
       <h1>counter: {count}</h1>
-      <label
-        htmlFor="step"
-        className="text-input-label"
-      >
-        Step
-      </label>
-      <input
+      <Label htmlFor="step">Step</Label>
+      <Input
         id="step"
         className="text-input"
         value={step}
