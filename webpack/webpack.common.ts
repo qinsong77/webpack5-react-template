@@ -106,8 +106,8 @@ const config: Configuration = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      title: 'webpack react app',
-      description: 'webpack react app',
+      title: 'webpack5 react app',
+      description: 'webpack5 react app',
       publicPath: PUBLIC_PATH,
       minify: {
         removeComments: true, // 删除注释

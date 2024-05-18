@@ -9,7 +9,7 @@ export const Profile = () => {
   })
   return (
     <div>
-      this is Profile
+      <h2>this is Profile</h2>
       {isLoading ? (
         <p>loading</p>
       ) : error ? (

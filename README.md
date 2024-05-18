@@ -26,6 +26,7 @@
 - [ ] Zustand
 - [ ] Generate Api
 - [ ] Axios + useQuery
+- [x] e2e test: playwright
 
 > Issues
 - [ ] `fork-ts-checker-webpack-plugin`会使用`tsconfig.json`的include的字段里去check文件，导致webpack dev时测试文件类型有问题也会报错，暂时是exclude排除了

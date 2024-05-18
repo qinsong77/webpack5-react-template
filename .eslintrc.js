@@ -67,12 +67,17 @@ module.exports = {
     {
       // Test files only
       files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      excludedFiles: ['e2e/**'],
       extends: [
         'plugin:jest/recommended',
         'plugin:jest-dom/recommended',
         'plugin:testing-library/react',
       ],
       rules: { 'jest/prefer-expect-assertions': 'off' },
+    },
+    {
+      files: ['e2e/**/*.spec.ts'],
+      extends: ['plugin:playwright/recommended'],
     },
     // override "simple-import-sort" config form https://dev.to/julioxavierr/sorting-your-imports-with-eslint-3ped
     {

@@ -27,3 +27,12 @@ yarn-error.log*
 .idea
 
 initBytsc.json
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/e2e-results/
