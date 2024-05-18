@@ -2,7 +2,7 @@ export const HomeCards = () => {
   return (
     <section className="bg-w relative z-40 py-10 sm:py-16 lg:py-24">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-light   text-black sm:text-4xl lg:text-5xl">
+        <h2 className="text-3xl font-light text-black sm:text-4xl lg:text-5xl">
           it&apos;s{' '}
           <span className="block w-full bg-gradient-to-r from-green-500 to-green-500 bg-clip-text font-light text-transparent lg:inline">
             Services
@@ -14,15 +14,15 @@ export const HomeCards = () => {
           Skcript.
         </p>
 
-        <div className="grid grid-cols-1 gap-6   lg:grid-cols-4 ">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-4 ">
           <a
             href="#1"
-            className=" relative shadow-2xl "
+            className="relative shadow"
           >
-            <div className="  group relative h-full overflow-hidden shadow-2xl shadow-green-900 ">
-              <div className=" absolute -bottom-10 left-0 h-full w-full transition-all duration-500 ease-in-out group-hover:top-0 group-hover:bg-green-900  ">
-                <div className="relative h-full   w-full   p-5">
-                  <div className="absolute bottom-0 text-left text-white  transition-all   duration-500 ease-in-out group-hover:bottom-24 ">
+            <div className="group relative h-full overflow-hidden shadow-green-900 ">
+              <div className="absolute -bottom-14 left-0 h-full w-full transition-all duration-500 ease-in-out group-hover:top-0 group-hover:bg-green-900  ">
+                <div className="relative h-full w-full p-5">
+                  <div className="absolute bottom-0 text-left text-white  transition-all duration-500 ease-in-out group-hover:bottom-24 ">
                     <h2 className="mb-0 pb-1  text-2xl font-bold text-white">
                       Standard Color
                     </h2>
@@ -41,12 +41,12 @@ export const HomeCards = () => {
           </a>
           <a
             href="#2"
-            className=" relative shadow-2xl "
+            className="relative shadow-2xl "
           >
-            <div className="  group relative h-full overflow-hidden shadow-2xl shadow-green-900 ">
-              <div className=" absolute -bottom-10 left-0 h-full w-full transition-all duration-500 ease-in-out group-hover:top-0 group-hover:bg-green-900  ">
-                <div className="relative h-full   w-full   p-5">
-                  <div className="absolute bottom-0 text-left text-white  transition-all   duration-500 ease-in-out group-hover:bottom-24 ">
+            <div className="group relative h-full overflow-hidden shadow shadow-green-900 ">
+              <div className="absolute -bottom-14 left-0 h-full w-full transition-all duration-500 ease-in-out group-hover:top-0 group-hover:bg-green-900  ">
+                <div className="relative h-full w-full p-5">
+                  <div className="absolute bottom-0 text-left text-white  transition-all duration-500 ease-in-out group-hover:bottom-24 ">
                     <h2 className="mb-0 pb-1  text-2xl font-bold text-white">
                       Standard Color
                     </h2>
@@ -67,10 +67,10 @@ export const HomeCards = () => {
             href="#3"
             className=" relative shadow-2xl "
           >
-            <div className="  group relative h-full overflow-hidden shadow-2xl shadow-green-900 ">
-              <div className=" absolute -bottom-10 left-0 h-full w-full transition-all duration-500 ease-in-out group-hover:top-0 group-hover:bg-green-900  ">
-                <div className="relative h-full   w-full   p-5">
-                  <div className="absolute bottom-0 text-left text-white  transition-all   duration-500 ease-in-out group-hover:bottom-24 ">
+            <div className="group relative h-full overflow-hidden shadow-2xl shadow-green-900 ">
+              <div className="absolute -bottom-14 left-0 h-full w-full transition-all duration-500 ease-in-out group-hover:top-0 group-hover:bg-green-900  ">
+                <div className="relative h-full w-full p-5">
+                  <div className="absolute bottom-0 text-left text-white  transition-all duration-500 ease-in-out group-hover:bottom-24 ">
                     <h2 className="mb-0 pb-1  text-2xl font-bold text-white">
                       Standard Color
                     </h2>
@@ -91,11 +91,11 @@ export const HomeCards = () => {
             href="#4"
             className=" relative shadow-2xl "
           >
-            <div className="  group relative h-full overflow-hidden shadow-2xl shadow-green-900 ">
-              <div className=" absolute -bottom-10 left-0 h-full w-full transition-all duration-500 ease-in-out group-hover:top-0 group-hover:bg-green-900  ">
-                <div className="relative h-full   w-full   p-5">
-                  <div className="absolute bottom-0 text-left text-white  transition-all   duration-500 ease-in-out group-hover:bottom-24 ">
-                    <h2 className="mb-0 pb-1  text-2xl font-bold text-white">
+            <div className="group relative h-full overflow-hidden shadow-2xl shadow-green-900 ">
+              <div className="absolute -bottom-14 left-0 h-full w-full transition-all duration-500 ease-in-out group-hover:top-0 group-hover:bg-green-900  ">
+                <div className="relative h-full w-full p-5">
+                  <div className="absolute bottom-0 text-left text-white  transition-all duration-500 ease-in-out group-hover:bottom-24 ">
+                    <h2 className="mb-0 pb-1 text-2xl font-bold text-white">
                       Standard Color
                     </h2>
                     <p className="text-lg font-light text-white">

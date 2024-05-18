@@ -3,8 +3,10 @@ import { Link, Outlet } from 'react-router-dom'
 export const Main = () => {
   return (
     <section className="flex">
-      <aside className="bg-amber-50 p-3">
-        <h3 className="text-2xl text-cyan-400">this is aside</h3>
+      <aside className="bg-secondary p-2 md:p-4">
+        <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          This is aside
+        </h3>
         <ul>
           <li>
             <Link to="/main">main</Link>
@@ -20,7 +22,9 @@ export const Main = () => {
           </li>
         </ul>
       </aside>
-      <Outlet />
+      <div className="p-2 md:p-4">
+        <Outlet />
+      </div>
     </section>
   )
 }

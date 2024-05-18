@@ -36,7 +36,8 @@
       "@/hooks/*": ["hooks/*"],
       "@/store/*": ["store/*"],
       "@/feature/*": ["feature/*"],
-      "@/utils": ["utils/index.ts"]
+      "@/utils": ["utils/index.ts"],
+      "@/config": ["utils/index.ts"]
     }
   },
   "include": ["src"],

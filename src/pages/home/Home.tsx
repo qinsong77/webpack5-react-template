@@ -4,7 +4,7 @@ import { HomeCards } from '@/feature/home-cards'
 export const Home = () => {
   return (
     <div>
-      <article className="mt-24 flex min-h-full flex-col items-center justify-center text-center text-gray-950">
+      <article className="mt-24 flex min-h-full flex-col items-center justify-center text-center text-gray-950 text-primary">
         <img
           src={logo}
           className="pointer-events-none h-40 animate-spin-slow"
