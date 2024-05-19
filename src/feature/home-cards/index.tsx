@@ -2,14 +2,14 @@ export const HomeCards = () => {
   return (
     <section className="bg-w relative z-40 py-10 sm:py-16 lg:py-24">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-light text-black sm:text-4xl lg:text-5xl">
+        <h2 className="text-3xl font-light text-black dark:text-primary sm:text-4xl lg:text-5xl">
           it&apos;s{' '}
           <span className="block w-full bg-gradient-to-r from-green-500 to-green-500 bg-clip-text font-light text-transparent lg:inline">
             Services
           </span>{' '}
           in one single line.
         </h2>
-        <p className="mb-20 text-lg text-gray-900">
+        <p className="mb-20 text-lg text-gray-900 dark:text-gray-300">
           Comes directly from the desk of engineers, creators and managers at
           Skcript.
         </p>
