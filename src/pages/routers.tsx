@@ -2,24 +2,23 @@ import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom'
 
 import { Layout } from '@/components/layout'
 import { NotFound } from '@/components/NotFound'
-import { Payment } from '@/feature/payment/components/Payment'
 
-import { FormDemo } from '../pages/form-demo'
-import { Home } from '../pages/home'
-import { Introduce } from '../pages/introduce'
-import { Dashboard, Discussion, List, Main, Post, Profile } from '../pages/main'
+import { Payment } from './payment/components/Payment'
 import {
   loader as PackageRouteDeferLoader,
   PackageLoaderDeferRoute,
-} from '../pages/router-loader/PackageLoaderDeferRoute'
+} from './router-loader/PackageLoaderDeferRoute'
 import {
   loader as PackageRouteLoader,
   PackageLoaderRoute,
-} from '../pages/router-loader/PackageLoaderRoute'
+} from './router-loader/PackageLoaderRoute'
+import { FormDemo } from './form-demo'
+import { Home } from './home'
+import { Introduce } from './introduce'
+import { Dashboard, Discussion, List, Main, Post, Profile } from './main'
 
 const authRouters: RouteObject[] = [
-  // { path: '/discussienes/*', element: <DiscussionsRoutes /> },
-  { path: '', element: <Dashboard /> },
+  { index: true, element: <Dashboard /> },
   { path: 'article', element: <Post /> },
   { path: 'profile', element: <Profile /> },
   { path: 'list/:listId', element: <List /> },

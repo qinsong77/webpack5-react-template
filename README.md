@@ -277,10 +277,10 @@ react-ts-template
 │ ├── feature # 项目中通用的业务组件目录
 │ ├── config # 项目配置文件
 │ ├── pages # 项目页面目录
+│ │ ├── routes.tsx # 路由目录
 │ ├── typings # 项目中d.ts 声明文件目录
 │ ├── types # 项目中声明文件
 │ ├── uiLibrary # 组件库
-│ ├── routes # 路由目录
 │ ├── services # 和后端相关的文件目录
 │ ├── store # redux 仓库
 │ ├── style  global style文件夹
