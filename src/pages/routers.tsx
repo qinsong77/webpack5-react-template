@@ -4,18 +4,20 @@ import { Layout } from '@/components/layout'
 import { NotFound } from '@/components/NotFound'
 
 import { Payment } from './payment/components/Payment'
+import { React19Routes } from './react-19/routes'
 import {
   loader as PackageRouteDeferLoader,
   PackageLoaderDeferRoute,
-} from './router-loader/PackageLoaderDeferRoute'
+} from './router-router/PackageLoaderDeferRoute'
 import {
   loader as PackageRouteLoader,
   PackageLoaderRoute,
-} from './router-loader/PackageLoaderRoute'
+} from './router-router/PackageLoaderRoute'
 import { FormDemo } from './form-demo'
 import { Home } from './home'
 import { Introduce } from './introduce'
 import { Dashboard, Discussion, List, Main, Post, Profile } from './main'
+import { ReactRouterPage } from './router-router'
 
 const authRouters: RouteObject[] = [
   { index: true, element: <Dashboard /> },
@@ -45,15 +47,22 @@ const mainRouters: RouteObject[] = [
     element: <FormDemo />,
   },
   {
-    path: '/loader-location/:packageId',
-    element: <PackageLoaderRoute />,
-    loader: PackageRouteLoader,
+    path: '/react-router',
+    element: <ReactRouterPage />,
+    children: [
+      {
+        path: 'loader-location/:packageId',
+        element: <PackageLoaderRoute />,
+        loader: PackageRouteLoader,
+      },
+      {
+        path: 'loader-defer-location/:packageId',
+        element: <PackageLoaderDeferRoute />,
+        loader: PackageRouteDeferLoader,
+      },
+    ],
   },
-  {
-    path: '/loader-defer-location/:packageId',
-    element: <PackageLoaderDeferRoute />,
-    loader: PackageRouteDeferLoader,
-  },
+  ...React19Routes,
   { path: 'payment', element: <Payment amount={19.9} /> },
 ]
 

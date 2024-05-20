@@ -34,7 +34,7 @@ export function MainNav() {
         <Link
           to="/introduce"
           className={cn(
-            'transition-colors hover:text-foreground/80',
+            'hidden text-foreground/60 transition-colors hover:text-foreground/80 2xl:block',
             pathname?.startsWith('/introduce')
               ? 'text-foreground'
               : 'text-foreground/60'
@@ -56,7 +56,7 @@ export function MainNav() {
         <Link
           to="/form-demo"
           className={cn(
-            'transition-colors hover:text-foreground/80',
+            'hidden text-foreground/60 transition-colors hover:text-foreground/80 2xl:block',
             pathname?.startsWith('/form-demo')
               ? 'text-foreground'
               : 'text-foreground/60'
@@ -65,26 +65,26 @@ export function MainNav() {
           form demo
         </Link>
         <Link
-          to="/loader-defer-location/290"
+          to="/react-router"
           className={cn(
-            'hidden text-foreground/60 transition-colors hover:text-foreground/80 2xl:block',
-            pathname?.startsWith('/loader-defer-location')
+            'transition-colors hover:text-foreground/80',
+            pathname?.startsWith('/react-router')
               ? 'text-foreground'
               : 'text-foreground/60'
           )}
         >
-          router defer
+          react-router
         </Link>
         <Link
-          to="/loader-location/290"
+          to="/react19"
           className={cn(
-            'hidden text-foreground/60 transition-colors hover:text-foreground/80 2xl:block',
-            pathname?.startsWith('/loader-location')
+            'transition-colors hover:text-foreground/80',
+            pathname?.startsWith('/react19')
               ? 'text-foreground'
               : 'text-foreground/60'
           )}
         >
-          router loader
+          react 19
         </Link>
         <Link
           to={siteConfig.links.repoGithub}
