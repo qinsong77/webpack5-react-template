@@ -3,7 +3,7 @@
 > WIP
 
 - [x] Webpack5
-  - [x] config by typescript
+  - [x] set-up/config with typescript
   - [x] dev/build/analyzer
   - [x] React hot refresh
 - [x] Typescript
@@ -25,7 +25,7 @@
 - [ ] [Router](https://reactrouter.com/en/main) => [TanStack Router](https://tanstack.com/router/v1)
 - [ ] Zustand
 - [ ] Generate Api
-- [ ] Axios + useQuery
+- [ ] axios + useQuery?
 - [x] e2e test: playwright
 
 > Issues
@@ -34,6 +34,7 @@
 - [x] 跑测试axios目前还报错 Network Error, 等msw修复。。 ["undici": "^5.0.0",](https://github.com/mswjs/msw/discussions/1915)
 - [ ] `msw`结合 `jest` 中[hack的代码](https://mswjs.io/docs/faq/#requestresponsetextencoder-is-not-defined-jest)比较多，need to remove
 - [ ] orval 生成的`.msw`文件类型报错，显示是手动注释`@ts-nocheck`，但重新生成会覆盖
+- [ ] failed to add ` "type": "module", ` for package.json, due to webpack crash
 
 - [React 开发思想纲领](https://github.com/mithi/react-philosophies) [翻译](https://juejin.cn/post/7076244324614144014)
 - [react 项目架构指南：Bulletproof React](https://github.com/alan2207/bulletproof-react)
