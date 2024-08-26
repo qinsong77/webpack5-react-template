@@ -1,6 +1,9 @@
 import { delay, graphql, http, HttpResponse } from 'msw'
 
+import { getSwaggerPetstoreOpenAPI30Mock } from '@/service/petstore/endpoint.msw'
+
 export const handlers = [
+  ...getSwaggerPetstoreOpenAPI30Mock(),
   http.get('https://api.example.com/user', () => {
     return HttpResponse.json({
       firstName: 'John',

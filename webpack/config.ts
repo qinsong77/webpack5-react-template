@@ -15,7 +15,7 @@ loadConfig({
   debug: process.env.DEBUG === 'true',
 })
 
-export const envKeys = ['NODE_ENV', 'PUBLIC_PATH', 'MSW_ENABLE'] // todo: coupled with env
+export const envKeys = ['NODE_ENV', 'PUBLIC_PATH', 'MSW_ENABLE', 'API_BASE_URL'] // todo: coupled with env
 
 export const PUBLIC_PATH = process.env.PUBLIC_PATH ?? '/'
 

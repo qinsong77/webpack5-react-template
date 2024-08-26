@@ -1,11 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { findPetsByStatus } from '@/service/apis/PetstoreService'
+import { findPetsByStatus } from '@/service/petstore/endpoint'
 
 export const Profile = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ['/api/v3/pet/findByStatus'],
     queryFn: () => findPetsByStatus({ status: 'sold' }),
+    retry: false,
   })
   return (
     <div>
@@ -16,8 +17,7 @@ export const Profile = () => {
         <p>error</p>
       ) : (
         <div>
-          <p>approved: {data?.[0].status}</p>
-          <p>approved: {data?.[0].id}</p>
+          <pre className="m-2 text-xs">{JSON.stringify(data, null, 2)}</pre>
           {/*<p>delivered: {data?.delivered}</p>*/}
         </div>
       )}

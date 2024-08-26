@@ -2,7 +2,7 @@
   /* Visit https://aka.ms/tsconfig to read more about this file */
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "target": "es5" /* 指定要编译到的目标ECMAScript版本：'ES3'、'ES5'（默认）、'ES2015'、'ES2016'、'ES2017'、'ES2018'、'ES2019'、'ES2020' 或 'ESNEXT'。 */,
+    "target": "es6" /* 指定要编译到的目标ECMAScript版本：'ES3'、'ES5'（默认）、'ES2015'、'ES2016'、'ES2017'、'ES2018'、'ES2019'、'ES2020' 或 'ESNEXT'。 */,
     "module": "esnext" /* 指定要使用的模块系统 */,
     "lib": [
       "dom",

@@ -9,6 +9,7 @@ declare namespace NodeJS {
     readonly PUBLIC_PATH: string
     readonly DEBUG: 'true' | 'false'
     readonly MSW_ENABLE: 'true' | 'false'
+    readonly API_BASE_URL: string
   }
 }
 

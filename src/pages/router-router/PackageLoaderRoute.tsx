@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 import { useLoaderData } from 'react-router-dom'
 
 import { Spinner } from '@/components/spinner'
-import { getPackageLocation, Pos } from '@/service/apis/customer'
+import { getPackageLocation, Pos } from '@/service/custom'
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error

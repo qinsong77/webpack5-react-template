@@ -33,7 +33,7 @@
 - [x] `pnpm run codegen:api`报错，和升级`prettier`有关系，回退到`2.8.4`没问题 => 使用[orval](https://github.com/orval-labs/orval) 替换了
 - [x] 跑测试axios目前还报错 Network Error, 等msw修复。。 ["undici": "^5.0.0",](https://github.com/mswjs/msw/discussions/1915)
 - [ ] `msw`结合 `jest` 中[hack的代码](https://mswjs.io/docs/faq/#requestresponsetextencoder-is-not-defined-jest)比较多，need to remove
-
+- [ ] orval 生成的`.msw`文件类型报错，显示是手动注释`@ts-nocheck`，但重新生成会覆盖
 
 - [React 开发思想纲领](https://github.com/mithi/react-philosophies) [翻译](https://juejin.cn/post/7076244324614144014)
 - [react 项目架构指南：Bulletproof React](https://github.com/alan2207/bulletproof-react)
@@ -1017,10 +1017,20 @@ Zero-runtime Stylesheets in TypeScript. But not now for using vanilla
 ### Generate API automatically
 使用[Swagger Petstore - OpenAPI 3.0](https://petstore3.swagger.io/) 测试
 - [pont](https://github.com/alibaba/pont), 不是特别好用，懒得配置
-- [swagger-typescript-api](https://github.com/acacode/swagger-typescript-api) Generate api via swagger scheme.
-  Supports OA 3.0, 2.0, JSON, yaml
-  Generated api module use Fetch Api or Axios to make requests.
-- [ts-codegen](https://github.com/reeli/ts-codegen)Typescript code generator from swagger. 一个生成前端接口层代码和对应 TypeScript 定义的工具。
+
+Pont 把 swagger、rap、dip 等多种接口文档平台，转换成 Pont 元数据。Pont 利用接口元数据，可以高度定制化生成前端接口层代码，接口 mock 平台和接口测试平台。
+
+- [OpenAPI Typescript](https://github.com/hey-api/openapi-ts) Generate TypeScript interfaces, REST clients, and JSON Schemas from OpenAPI specifications.
+- [orval](https://github.com/orval-labs/orval) orval is able to generate client with appropriate type-signatures (TypeScript) from any valid OpenAPI v3 or Swagger v2 specification, either in yaml or json formats.
+- [openapi-typescript](https://github.com/openapi-ts/openapi-typescript) Tools for consuming OpenAPI schemas in TypeScript.
+- [swagger-typescript-api](https://github.com/acacode/swagger-typescript-api) Generate the API Client for Fetch or Axios from an OpenAPI Specification
+- [ts-codegen](https://github.com/reeli/ts-codegen)  一个生成前端接口层代码和对应 TypeScript 定义的工具。
+
+对比了下，功能都差不多，但`orval`更自由些，支持自定义API client，没有强绑定，且：
+
+- Generate typescript models
+- Generate HTTP Calls
+- Generate Mocks with MSW
 
 
 ## Reference
