@@ -1,5 +1,5 @@
 /* eslint-disable */
-// --- START of unnecessary polyfills - https://github.com/mswjs/examples/blob/main/examples/with-jest/jest.polyfills.ts
+// --- START of unnecessary polyfills - https://github.com/mswjs/examples/blob/main/examples/with-jest-jsdom/jest.polyfills.ts
 /**
  * @note The block below contains polyfills for Node.js globals
  * required for Jest to function when running JSDOM tests.
@@ -9,20 +9,21 @@
  * Consider migrating to a more modern test runner if
  * you don't want to deal with this.
  */
-// @ts-ignore
-const { TextDecoder, TextEncoder } = require('node:util')
+const { TextDecoder, TextEncoder, ReadableStream } = require('node:util')
 
 Object.defineProperties(globalThis, {
   TextDecoder: { value: TextDecoder },
   TextEncoder: { value: TextEncoder },
+  ReadableStream: { value: ReadableStream }, // https://github.com/mswjs/msw/discussions/1934
 })
 
-const { Blob } = require('node:buffer')
+const { Blob, File } = require('node:buffer')
 const { fetch, Headers, FormData, Request, Response } = require('undici')
 
 Object.defineProperties(globalThis, {
   fetch: { value: fetch, writable: true },
   Blob: { value: Blob },
+  File: { value: File },
   Headers: { value: Headers },
   FormData: { value: FormData },
   Request: { value: Request },

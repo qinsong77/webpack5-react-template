@@ -7,7 +7,7 @@ import type { Config } from 'jest'
 const config: Config = {
   rootDir: __dirname,
   testEnvironment: 'jsdom',
-  setupFiles: ['<rootDir>/jest/jest.polyfills.ts'],
+  setupFiles: ['<rootDir>/jest/jest.polyfills.js'],
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   moduleNameMapper: {
     '\\.(css|sass|scss)$': 'identity-obj-proxy',

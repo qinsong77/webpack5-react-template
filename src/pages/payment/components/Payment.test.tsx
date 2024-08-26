@@ -18,27 +18,30 @@ describe('Payment', () => {
   })
 
   it('shows thanks when user selected donation', async () => {
+    const user = userEvent.setup()
     render(<Payment amount={19.9} />)
 
     const select = screen.getByText('I would like to donate $0.1 to charity.')
     expect(select).toBeInTheDocument()
 
-    await userEvent.click(select)
+    await user.click(select)
     expect(screen.getByText('Thanks for your donation.')).toBeInTheDocument()
   })
 
   it('shows correct amount when user selected to donate', async () => {
+    const user = userEvent.setup()
     render(<Payment amount={19.9} />)
 
     const select = screen.getByText('I would like to donate $0.1 to charity.')
     expect(select).toBeInTheDocument()
 
-    await userEvent.click(select)
+    await user.click(select)
     expect(screen.getByText('$20')).toBeInTheDocument()
   })
 
   describe('Japan market', () => {
     it('shows correct amount when user selected to donate', async () => {
+      const user = userEvent.setup()
       render(
         <Payment
           amount={3312}
@@ -49,13 +52,14 @@ describe('Payment', () => {
       const select = screen.getByText('I would like to donate ¥88 to charity.')
       expect(select).toBeInTheDocument()
 
-      await userEvent.click(select)
+      await user.click(select)
       expect(screen.getByText('¥3400')).toBeInTheDocument()
     })
   })
 
   describe('Denmark market', () => {
     it('shows correct amount when user selected to donate', async () => {
+      const user = userEvent.setup()
       render(
         <Payment
           amount={1.2}
@@ -68,7 +72,7 @@ describe('Payment', () => {
       )
       expect(select).toBeInTheDocument()
 
-      await userEvent.click(select)
+      await user.click(select)
       expect(screen.getByText('Kr.10')).toBeInTheDocument()
     })
   })

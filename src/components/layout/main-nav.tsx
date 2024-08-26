@@ -87,6 +87,7 @@ export function MainNav() {
           react 19
         </Link>
         <Link
+          target="_blank"
           to={siteConfig.links.repoGithub}
           className={cn(
             'hidden text-foreground/60 transition-colors hover:text-foreground/80 2xl:block'

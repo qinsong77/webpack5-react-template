@@ -6,7 +6,7 @@ import App from './App'
 import './style/index.css'
 
 async function prepareApp() {
-  if (process.env.MSW_ENABLE) {
+  if (process.env.MSW_ENABLE === 'true') {
     const { worker } = await import('./__mocks__/browser')
     return worker.start({
       serviceWorker: {

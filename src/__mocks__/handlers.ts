@@ -78,11 +78,20 @@ export const handlers = [
       },
     ])
   }),
+  http.options(
+    'https://5a2f495fa871f00012678d70.mockapi.io/api/payment-methods',
+    () => {
+      return new Response(null, {
+        status: 200,
+        headers: {
+          Allow: 'GET,HEAD,POST',
+        },
+      })
+    }
+  ),
   http.get(
     'https://5a2f495fa871f00012678d70.mockapi.io/api/payment-methods',
-    async ({ params }) => {
-      // Await a random realistic server response time.
-      console.log(params)
+    async () => {
       await delay()
       return HttpResponse.json([
         {

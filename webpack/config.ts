@@ -12,8 +12,7 @@ const ENV_CONFIG_PATH = path.resolve(ROOT_PATH, 'env', `.env.${NODE_ENV}`)
 
 loadConfig({
   path: ENV_CONFIG_PATH,
-  // todo fix type
-  debug: process.env.DEBUG as unknown as boolean,
+  debug: process.env.DEBUG === 'true',
 })
 
 export const envKeys = ['NODE_ENV', 'PUBLIC_PATH', 'MSW_ENABLE'] // todo: coupled with env

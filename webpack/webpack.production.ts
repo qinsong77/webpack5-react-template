@@ -59,9 +59,10 @@ const config: Configuration = {
           from: 'public',
           to: '',
           globOptions: {
-            ignore: process.env.MSW_ENABLE
-              ? ['**/index.html']
-              : ['**/mockServiceWorker.js', '**/index.html'],
+            ignore:
+              process.env.MSW_ENABLE === 'true'
+                ? ['**/index.html']
+                : ['**/mockServiceWorker.js', '**/index.html'],
           },
         },
       ],

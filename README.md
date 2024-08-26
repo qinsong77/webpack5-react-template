@@ -30,9 +30,9 @@
 
 > Issues
 - [ ] `fork-ts-checker-webpack-plugin`会使用`tsconfig.json`的include的字段里去check文件，导致webpack dev时测试文件类型有问题也会报错，暂时是exclude排除了
-- [ ] `pnpm run codegen:api`报错，和升级`prettier`有关系，回退到`2.8.4`没问题
-- [x] 跑测试axios目前还报错 Network Error, 等msw修复。。
-- [ ] msw结合jest 中hack的比较多代码，need remove
+- [x] `pnpm run codegen:api`报错，和升级`prettier`有关系，回退到`2.8.4`没问题 => 使用[orval](https://github.com/orval-labs/orval) 替换了
+- [x] 跑测试axios目前还报错 Network Error, 等msw修复。。 ["undici": "^5.0.0",](https://github.com/mswjs/msw/discussions/1915)
+- [ ] `msw`结合 `jest` 中[hack的代码](https://mswjs.io/docs/faq/#requestresponsetextencoder-is-not-defined-jest)比较多，need to remove
 
 
 - [React 开发思想纲领](https://github.com/mithi/react-philosophies) [翻译](https://juejin.cn/post/7076244324614144014)
