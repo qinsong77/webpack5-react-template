@@ -17,8 +17,6 @@ module.exports = {
     'simple-import-sort',
     // https://www.npmjs.com/package/eslint-plugin-react-refresh
     'react-refresh',
-    // https://react.dev/learn/react-compiler#installing-eslint-plugin-react-compiler
-    'eslint-plugin-react-compiler',
   ],
   extends: [
     // ESLint
@@ -64,8 +62,6 @@ module.exports = {
     'import/no-duplicates': 'error',
 
     'react-refresh/only-export-components': 'warn',
-
-    'react-compiler/react-compiler': 'error',
   },
   overrides: [
     {
