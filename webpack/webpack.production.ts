@@ -3,7 +3,6 @@ import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
 import type { Configuration } from 'webpack'
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import merge from 'webpack-merge'
 
 // import InlineRuntimeChunkPlugin from './plugins/inline-runtime-chunk-html'
@@ -16,7 +15,9 @@ const config: Configuration = {
     minimize: true, //开启压缩
     moduleIds: 'deterministic', //单独模块id，模块内容变化再更新
     minimizer: [
+      // 压缩css
       new CssMinimizerPlugin(),
+      // 压缩js
       new TerserPlugin({
         parallel: true, // 开启多线程压缩
         terserOptions: {
@@ -77,11 +78,7 @@ const config: Configuration = {
       ignoreOrder: false, // Enable to remove warnings about conflicting order
     }),
     // new InlineRuntimeChunkPlugin(),
-    process.env.analyzer &&
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
-      }),
-  ].filter(Boolean),
+  ],
 }
 
 export default merge(commonConfig, config)

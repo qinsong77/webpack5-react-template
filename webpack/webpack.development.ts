@@ -35,8 +35,7 @@ const config: Configuration = merge(commonConfig, {
     port: 3010,
     // 当使用 [HTML5 History API] 时，任意的 `404` 响应被替代为 `index.html`
     historyApiFallback: true,
-    // 是否启用gzip压缩
-    compress: true,
+    compress: false, // gzip压缩，开发环境不开启，提升速度
     client: {
       logging: 'info',
       progress: true,

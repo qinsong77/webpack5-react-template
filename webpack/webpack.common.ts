@@ -99,7 +99,8 @@ const config: Configuration = {
         options: {
           cacheDirectory: true,
         },
-        exclude: [/node_modules/, /public/, /(.|_)min\.js$/],
+        include: [path.resolve(__dirname, '../src')],
+        // exclude: [/node_modules/, /public/, /(.|_)min\.js$/],
       },
     ],
   },
