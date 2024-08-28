@@ -33,8 +33,8 @@
 - [x] `pnpm run codegen:api`报错，和升级`prettier`有关系，回退到`2.8.4`没问题 => 使用[orval](https://github.com/orval-labs/orval) 替换了
 - [x] 跑测试axios目前还报错 Network Error, 等msw修复。。 ["undici": "^5.0.0",](https://github.com/mswjs/msw/discussions/1915)
 - [ ] `msw`结合 `jest` 中[hack的代码](https://mswjs.io/docs/faq/#requestresponsetextencoder-is-not-defined-jest)比较多，need to remove
-- [ ] orval 生成的`.msw`文件类型报错，显示是手动注释`@ts-nocheck`，但重新生成会覆盖
-- [x] failed to add ` "type": "module", ` for package.json, due to webpack crash. => Replace ts-node with [tsx](https://github.com/privatenumber/tsx) to solve it.
+- [ ] `orval` 生成的`.msw`文件类型报错，显示是手动注释`@ts-nocheck`，但重新生成会覆盖
+- [x] failed to add ` "type": "module", ` for package.json, due to webpack crash. => Replace ts-node with [tsx](https://github.com/privatenumber/tsx) to solve it. but add [thread-loader](https://www.npmjs.com/package/thread-loader) failed.
 
 - [React 开发思想纲领](https://github.com/mithi/react-philosophies) [翻译](https://juejin.cn/post/7076244324614144014)
 - [react 项目架构指南：Bulletproof React](https://github.com/alan2207/bulletproof-react)
@@ -349,7 +349,7 @@ package.json
 - css-loader：css-loader 会对 `@import` 和 `url() `进行处理，就像 js 解析 `import/require()` 一样。
 - @pmmmwh/react-refresh-webpack-plugin && react-refresh: react热更新
 - dotenv：可以将环境变量中的变量从 `.env `文件加载到 `process.env` 中。
-- cross-env： 运行跨平台设置和使用环境变量的脚本
+- cross-env：运行跨平台设置和使用环境变量的脚本
 - @soda/friendly-errors-webpack-plugin: 用于美化控制台，良好的提示错误。
 - fork-ts-checker-webpack-plugin: runs TypeScript type checker on a separate process.
 - babel相关，后续单独罗列
@@ -411,6 +411,16 @@ webpack5 之前，通常使用
 - asset在导出一个 data URI 和发送一个单独的文件之间自动选择。之前通过使用url-loader，并且配置资源体积限制实现。
 
 关于配置`type:'asset'`后，webpack 将按照默认条件，自动地在 `resource` 和 `inline` 之间进行选择：小于 8kb 的文件，将会视为 `inline` 模块类型，否则会被视为 `resource` 模块类型。
+
+## ENV 相关
+
+- dotenv：可以将环境变量中的变量从 `.env `文件加载到 `process.env` 中。
+- cross-env：运行跨平台设置和使用环境变量的脚本
+- [DefinePlugin](https://webpack.js.org/plugins/define-plugin/): 允许在 `编译时` 将代码中的变量替换为其他值或表达式
+
+以`REACT_APP_`开头的env，DefinePlugin会自动处理替换。
+
+利用这里也可以实现，部署到不同环境下，都**只build一次**，配置不同的环境变量注入。
 
 ## babel 设置
 

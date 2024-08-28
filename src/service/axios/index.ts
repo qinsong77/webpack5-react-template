@@ -2,7 +2,7 @@ import Axios, { AxiosRequestConfig, InternalAxiosRequestConfig } from 'axios'
 import { toast } from 'sonner'
 
 const AXIOS_INSTANCE = Axios.create({
-  baseURL: process.env.API_BASE_URL || '',
+  baseURL: process.env.REACT_APP_API_BASE_URL || '',
   timeout: 15 * 1000,
   headers: {
     'Content-Type': 'application/json',

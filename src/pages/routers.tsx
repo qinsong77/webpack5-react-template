@@ -78,6 +78,6 @@ export const routers = createBrowserRouter(
     },
   ],
   {
-    basename: process.env.PUBLIC_PATH,
+    basename: process.env.REACT_APP_PUBLIC_PATH,
   }
 )

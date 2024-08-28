@@ -6,11 +6,11 @@ import App from './App'
 import './style/index.css'
 
 async function prepareApp() {
-  if (process.env.MSW_ENABLE === 'true') {
+  if (process.env.REACT_APP_MSW_ENABLE === 'true') {
     const { worker } = await import('./__mocks__/browser')
     return worker.start({
       serviceWorker: {
-        url: `${process.env.PUBLIC_PATH ?? '/'}mockServiceWorker.js`,
+        url: `${process.env.REACT_APP_PUBLIC_PATH ?? '/'}mockServiceWorker.js`,
       },
     })
   }

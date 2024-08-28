@@ -6,11 +6,11 @@
 declare namespace NodeJS {
   interface ProcessEnv {
     readonly NODE_ENV: 'development' | 'production'
-    readonly APP_ENV: 'dev' | 'qa' | 'preprod' | 'prod'
-    readonly PUBLIC_PATH: string
+    readonly REACT_APP_ENV: 'dev' | 'qa' | 'preprod' | 'prod'
+    readonly REACT_APP_PUBLIC_PATH: string
     readonly DEBUG: 'true' | 'false'
-    readonly MSW_ENABLE: 'true' | 'false'
-    readonly API_BASE_URL: string
+    readonly REACT_APP_MSW_ENABLE: 'true' | 'false'
+    readonly REACT_APP_API_BASE_URL: string
   }
 }
 

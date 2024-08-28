@@ -1,5 +1,13 @@
 {
   // .ts 配置 https://webpack.js.org/configuration/configuration-languages
-  "extends": "./tsconfig.json",
-  "include": ["webpack"]
+  "compilerOptions": {
+    "composite": true,
+    "module": "esnext",
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true
+  },
+  "include": ["webpack"],
+  "exclude": ["node_modules"]
 }

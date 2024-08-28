@@ -61,7 +61,7 @@ const config: Configuration = {
           to: '',
           globOptions: {
             ignore:
-              process.env.MSW_ENABLE === 'true'
+              process.env.REACT_APP_MSW_ENABLE === 'true'
                 ? ['**/index.html']
                 : ['**/mockServiceWorker.js', '**/index.html'],
           },

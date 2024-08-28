@@ -1,3 +1,4 @@
+// @ts-ignore
 import FriendlyErrorsWebpackPlugin from '@soda/friendly-errors-webpack-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
@@ -8,12 +9,24 @@ import type { Configuration } from 'webpack'
 import { DefinePlugin } from 'webpack'
 import WebpackBar from 'webpackbar'
 
-import { envKeys, IS_DEV, PUBLIC_PATH } from './config'
+import {
+  ENV_PREFIX,
+  IS_DEV,
+  REACT_APP_ENV,
+  REACT_APP_PUBLIC_PATH,
+  ROOT_PATH,
+} from './config'
+import { config as loadConfig } from 'dotenv'
 // import { handleProgress } from './utils/handleProgress'
 
 // fix error: tsconfig-paths-webpack-plugin: Found no baseUrl in tsconfig.json, not applying tsconfig-paths-webpack-plugin
 // https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/32#issuecomment-491824372
 delete process.env.TS_NODE_PROJECT
+
+loadConfig({
+  path: path.resolve(ROOT_PATH, 'env', `.env.${REACT_APP_ENV}`),
+  debug: process.env.DEBUG === 'true',
+})
 
 const config: Configuration = {
   mode: 'production',
@@ -25,7 +38,7 @@ const config: Configuration = {
   output: {
     // 相当于 clean-webpack-plugin
     clean: true,
-    publicPath: PUBLIC_PATH,
+    publicPath: REACT_APP_PUBLIC_PATH,
     path: path.resolve(__dirname, '../dist'),
     filename: IS_DEV
       ? 'js/[name].bundle.js'
@@ -109,7 +122,7 @@ const config: Configuration = {
       template: './public/index.html',
       title: 'webpack5 react app',
       description: 'webpack5 react app',
-      publicPath: PUBLIC_PATH,
+      publicPath: REACT_APP_PUBLIC_PATH,
       minify: {
         removeComments: true, // 删除注释
         collapseWhitespace: true,
@@ -133,12 +146,14 @@ const config: Configuration = {
       // profile: false, // 默认false，启用探查器。
     }),
     new DefinePlugin(
-      envKeys.reduce((prev, envKey) => {
-        prev[`process.env.${envKey}`] = JSON.stringify(
-          process.env[envKey] ?? ''
-        )
-        return prev
-      }, {})
+      Object.keys(process.env)
+        .filter((key) => key.startsWith(ENV_PREFIX))
+        .reduce<Record<string, string>>((prev, envKey) => {
+          prev[`process.env.${envKey}`] = JSON.stringify(
+            process.env[envKey] ?? ''
+          )
+          return prev
+        }, {})
     ),
   ],
 }

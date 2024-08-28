@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      PUBLIC_PATH: /webpack5-react-template/
-      MSW_ENABLE: true
+      REACT_APP_PUBLIC_PATH: /webpack5-react-template/
+      REACT_APP_MSW_ENABLE: true
 
     steps:
       - name: Checkout
@@ -24,7 +24,7 @@ jobs:
           node-version: 18
 
       - name: Set Environment Variables
-        run: echo "PUBLIC_PATH=${{ env.PUBLIC_PATH }}" >> $GITHUB_ENV
+        run: echo "REACT_APP_PUBLIC_PATH=${{ env.REACT_APP_PUBLIC_PATH }}" >> $GITHUB_ENV
 
       - uses: pnpm/action-setup@v2
         name: Install pnpm
