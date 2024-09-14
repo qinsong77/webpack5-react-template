@@ -145,6 +145,7 @@ const config: Configuration = {
       // basic: false, // 默认true，启用一个简单的日志报告器
       // profile: false, // 默认false，启用探查器。
     }),
+    //  todo, 如果使用的某一个process.env.REACT_APP_XX，没有配置，则不会替换，会报错的
     new DefinePlugin(
       Object.keys(process.env)
         .filter((key) => key.startsWith(ENV_PREFIX))
