@@ -7,7 +7,7 @@ import type { Config } from 'jest'
 const config: Config = {
   rootDir: __dirname,
   testEnvironment: 'jsdom',
-  setupFiles: ['<rootDir>/jest/jest.polyfills.js'],
+  setupFiles: ['<rootDir>/jest/jest.polyfills.cjs'],
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   moduleNameMapper: {
     '\\.(css|sass|scss)$': 'identity-obj-proxy',
@@ -16,8 +16,9 @@ const config: Config = {
   transform: {
     '\\.[jt]sx?$': 'babel-jest',
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      '<rootDir>/jest/fileTransformer.js',
+      '<rootDir>/jest/fileTransformer.cjs',
   },
+  testPathIgnorePatterns: ['<rootDir>/e2e'],
   // 是否显示覆盖率报告
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.[jt]s?(x)', '!src/service/apis/*.ts'],

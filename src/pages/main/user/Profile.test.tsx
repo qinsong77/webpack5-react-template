@@ -17,8 +17,13 @@ describe('<Profile/>', () => {
     expect(screen.getByText(/loading/i)).toBeInTheDocument()
     // expect(await screen.findByText('approved: available')).toBeInTheDocument() = msw mock delay(2000)
 
-    await waitFor(() => {
-      expect(screen.getByText('Loaded Data:')).toBeInTheDocument()
-    })
+    await waitFor(
+      () => {
+        expect(screen.getByText('Loaded Data:')).toBeInTheDocument()
+      },
+      {
+        timeout: 3000,
+      }
+    )
   })
 })
