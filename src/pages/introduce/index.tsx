@@ -1,3 +1,3 @@
 export const Introduce = () => {
-  return <div>this is the Introduce page</div>
+  return <p data-testid="introduce-text">this is the Introduce page</p>
 }

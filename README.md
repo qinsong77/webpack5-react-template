@@ -20,6 +20,7 @@
 - [x] postcss
 - [ ] mock serve
   - [msw](https://mswjs.io/docs) for mock server and test, refer: [Stop mocking fetch](https://kentcdodds.com/blog/stop-mocking-fetch)
+  - not stable, jest failed sometime due to it.
 - [x] [Tailwindcss](https://tailwindcss.com/)
 - [x] [ui.shadcn](https://ui.shadcn.com/docs)
 - [ ] [Router](https://reactrouter.com/en/main) => [TanStack Router](https://tanstack.com/router/v1)
@@ -28,6 +29,7 @@
 - [ ] axios + useQuery?
 - [x] e2e test: playwright
   - [midscenejs](https://midscenejs.com/zh/docs/getting-started/introduction.html) using LLM to help testing.
+  - [ ] reuse `data-testid`, make it consistent
 - [ ] Webpack => [rspack](https://rspack.dev/)
 
 > Issues

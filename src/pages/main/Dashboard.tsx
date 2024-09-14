@@ -1,3 +1,3 @@
 export const Dashboard = () => {
-  return <p>this is Dashboard</p>
+  return <p data-testid="dashboard-text">this is Dashboard</p>
 }

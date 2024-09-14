@@ -34,13 +34,13 @@ export function MainNav() {
         <Link
           to="/introduce"
           className={cn(
-            'hidden text-foreground/60 transition-colors hover:text-foreground/80 2xl:block',
+            'text-foreground/60 transition-colors hover:text-foreground/80 2xl:block',
             pathname?.startsWith('/introduce')
               ? 'text-foreground'
               : 'text-foreground/60'
           )}
         >
-          introduce
+          intro
         </Link>
         <Link
           to="/payment"
