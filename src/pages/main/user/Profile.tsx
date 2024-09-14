@@ -17,6 +17,7 @@ export const Profile = () => {
         <p>error</p>
       ) : (
         <div>
+          <h2 className="my-2 text-2xl">Loaded Data:</h2>
           <pre className="m-2 text-xs">{JSON.stringify(data, null, 2)}</pre>
           {/*<p>delivered: {data?.delivered}</p>*/}
         </div>

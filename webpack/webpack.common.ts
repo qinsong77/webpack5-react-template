@@ -1,5 +1,6 @@
-// @ts-ignore
+// @ts-expect-error no type
 import FriendlyErrorsWebpackPlugin from '@soda/friendly-errors-webpack-plugin'
+import { config as loadConfig } from 'dotenv'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
@@ -16,7 +17,6 @@ import {
   REACT_APP_PUBLIC_PATH,
   ROOT_PATH,
 } from './config'
-import { config as loadConfig } from 'dotenv'
 // import { handleProgress } from './utils/handleProgress'
 
 // fix error: tsconfig-paths-webpack-plugin: Found no baseUrl in tsconfig.json, not applying tsconfig-paths-webpack-plugin

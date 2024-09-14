@@ -9,21 +9,16 @@ const wrapper = ({ children }: { children: ReactNode }) => (
   <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 )
 
-describe('test Profile', () => {
-  it('should', async () => {
+describe('<Profile/>', () => {
+  it('should show title after request done', async () => {
     render(<Profile />, {
       wrapper,
     })
     expect(screen.getByText(/loading/i)).toBeInTheDocument()
     // expect(await screen.findByText('approved: available')).toBeInTheDocument() = msw mock delay(2000)
 
-    await waitFor(
-      () => {
-        expect(screen.getByText('approved: available')).toBeInTheDocument()
-      },
-      {
-        timeout: 3000,
-      }
-    )
+    await waitFor(() => {
+      expect(screen.getByText('Loaded Data:')).toBeInTheDocument()
+    })
   })
 })

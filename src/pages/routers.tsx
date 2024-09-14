@@ -19,7 +19,7 @@ import { Introduce } from './introduce'
 import { Dashboard, Discussion, List, Main, Post, Profile } from './main'
 import { ReactRouterPage } from './router-router'
 
-const authRouters: RouteObject[] = [
+const authRoutes: RouteObject[] = [
   { index: true, element: <Dashboard /> },
   { path: 'article', element: <Post /> },
   { path: 'profile', element: <Profile /> },
@@ -28,7 +28,7 @@ const authRouters: RouteObject[] = [
   { path: '*', element: <Navigate to="." /> },
 ]
 
-const mainRouters: RouteObject[] = [
+const mainRoutes: RouteObject[] = [
   {
     path: '/',
     element: <Home />,
@@ -36,7 +36,7 @@ const mainRouters: RouteObject[] = [
   {
     path: '/main',
     element: <Main />,
-    children: authRouters,
+    children: authRoutes,
   },
   {
     path: '/introduce',
@@ -74,7 +74,7 @@ export const routers = createBrowserRouter(
       element: <Layout />,
       // 404
       errorElement: <NotFound />,
-      children: mainRouters,
+      children: mainRoutes,
     },
   ],
   {

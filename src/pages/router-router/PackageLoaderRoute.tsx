@@ -1,13 +1,12 @@
 import { Suspense } from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { LoaderFunction, useLoaderData } from 'react-router-dom'
 
 import { Spinner } from '@/components/spinner'
 import { getPackageLocation, Pos } from '@/service/custom'
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
-export async function loader({ params }) {
-  return getPackageLocation(params.packageId)
+export const loader: LoaderFunction = async ({ params }) => {
+  // fixme what if params.packageId is missing
+  return getPackageLocation({ id: params.packageId ?? '' })
 }
 export function PackageLoaderRoute() {
   const packageLocation = useLoaderData() as Pos

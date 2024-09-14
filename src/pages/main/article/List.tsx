@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 
+import { Button } from '@/components/ui/button'
 import { useBearStore } from '@/store/useBearStore'
 
 export const List = () => {
@@ -9,13 +10,9 @@ export const List = () => {
   return (
     <div>
       this is article List, id: {listId}
+      <h1 className="my-2 text-2xl font-semibold">zustand</h1>
       <p>bear: {bears}</p>
-      <button
-        onClick={() => increasePopulation(10)}
-        className="btn-blue"
-      >
-        increase
-      </button>
+      <Button onClick={() => increasePopulation(10)}>increase</Button>
     </div>
   )
 }

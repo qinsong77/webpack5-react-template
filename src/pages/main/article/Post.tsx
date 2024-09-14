@@ -7,10 +7,7 @@ export const Post = () => {
   return (
     <div>
       <p>num: {num}</p>
-      <button
-        onClick={() => updateNum(1)}
-        className="btn-blue"
-      >
+      <button onClick={() => updateNum(1)}>
         <Child />
       </button>
     </div>

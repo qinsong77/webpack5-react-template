@@ -1,29 +1,38 @@
-import logo from '@/assets/logo.svg'
-import { HomeCards } from '@/feature/home-cards'
+import { useEffect } from 'react'
+import AOS from 'aos'
 
+import Features from './components/features'
+import Hero from './components/hero'
+import Newsletter from './components/newsletter'
+import Testimonials from './components/testimonials'
+import Zigzag from './components/zigzag'
+
+import 'aos/dist/aos.css'
+
+// import Footer from './components/ui/footer'
+
+/*
+  src: https://github.com/cruip/open-react-template
+  https://open.cruip.com/
+ */
 export const Home = () => {
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      disable: 'phone',
+      duration: 600,
+      easing: 'ease-out-sine',
+    })
+  })
   return (
-    <div>
-      <article className="mt-24 flex min-h-full flex-col items-center justify-center text-center text-gray-950 text-primary">
-        <img
-          src={logo}
-          className="pointer-events-none h-40 animate-spin-slow"
-          alt="logo"
-        />
-        <p className="mt-4 text-xl">
-          Edit <code className="text-blue-500">src/Home.tsx</code> and save to
-          reload.
-        </p>
-        <a
-          className="mt-4 font-bold text-blue-500 hover:text-blue-700"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </article>
-      <HomeCards />
-    </div>
+    <>
+      <Hero />
+      <Features />
+      <Zigzag />
+      <Testimonials />
+      <Newsletter />
+
+      {/*<Footer />*/}
+    </>
   )
 }

@@ -1,18 +1,26 @@
 import { Suspense } from 'react'
-import { Await, defer, useAsyncValue, useLoaderData } from 'react-router-dom'
+import {
+  Await,
+  defer,
+  LoaderFunction,
+  useAsyncValue,
+  useLoaderData,
+} from 'react-router-dom'
 
 import { Spinner } from '@/components/spinner'
 import { getPackageLocation, Pos } from '@/service/custom'
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
-export async function loader({ params }) {
-  const packageLocationPromise = getPackageLocation(params.packageId)
+export const loader: LoaderFunction = ({ params }) => {
+  // fixme what if params.packageId is missing
+  const packageLocationPromise = getPackageLocation({
+    id: params.packageId ?? '',
+  })
 
   return defer({
     res: packageLocationPromise,
   })
 }
+
 export function PackageLoaderDeferRoute() {
   const data = useLoaderData() as { res: Pos }
 
@@ -28,7 +36,7 @@ export function PackageLoaderDeferRoute() {
         }
       >
         <Await
-          resolve={data?.res}
+          resolve={data.res}
           errorElement={<p>Error loading package location!</p>}
         >
           <PackageLocation />
