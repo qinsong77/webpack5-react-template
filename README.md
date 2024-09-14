@@ -24,7 +24,7 @@
 - [x] [ui.shadcn](https://ui.shadcn.com/docs)
 - [ ] [Router](https://reactrouter.com/en/main) => [TanStack Router](https://tanstack.com/router/v1)
 - [ ] Zustand
-- [ ] Generate Api
+- [x] Generate Api with type: [orval](https://orval.dev/)
 - [ ] axios + useQuery?
 - [x] e2e test: playwright
   - [midscenejs](https://midscenejs.com/zh/docs/getting-started/introduction.html) using LLM to help testing.
